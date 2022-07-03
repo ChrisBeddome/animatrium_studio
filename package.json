@@ -1,0 +1,22 @@
+{
+  "name": "clay_with_tass",
+  "version": "1.0.0",
+  "description": "Ecommerce application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisBeddome/clay_with_tass.git"
+  },
+  "author": "Chris Beddome",
+  "dependencies": {
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
