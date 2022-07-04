@@ -1,6 +1,6 @@
-# tunez.
+# Clay with Tass
 
-clay with tass is an ecommerce application built with nextJS
+Clay with Tass is an ecommerce application built with nextJS
 
 ## Installation
 
