@@ -1,0 +1,21 @@
+.about-page {
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .img img {
+      border-radius: 600px;
+    }
+    .blurb {
+      max-width: 600px;
+      padding-right: 20px;
+      ul {
+        margin-left: 40px;
+        list-style-type: disc;
+        li {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

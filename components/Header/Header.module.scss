@@ -1,0 +1,47 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  > * {
+    flex: 1;
+  }
+  .navigation {
+    text-align: center;
+    font-size: 14px;
+    ul {
+      li {
+        color: #666;
+        display: inline-block;
+        a {
+          padding: 0 15px;
+          span {
+            border-bottom: 2px solid transparent;
+            transition: border 100ms ease-in-out;
+            padding-bottom: 3px;
+          }
+        }
+        &:hover,
+        &.current-page {
+          color: #333;
+          span {
+            border-color: #EEE;
+          }
+        }
+        &.current-page {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .secondary-navigation {
+    text-align: right;
+    ul {
+      li {
+        display: inline;
+      }
+    }
+  }
+}

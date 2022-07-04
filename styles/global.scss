@@ -1,19 +1,24 @@
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 300,
-  'GRAD' 0,
-  'opsz' 48
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
 }
 
-body, html {
+body,
+html {
+  color: #333;
   font-family: "Assistant", sans-serif;
+  letter-spacing: 0.6px;
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 strong {
   font-weight: bold;
+}
+
+h1 {
+  color: black;
+  font-size: 52px;
+  margin-bottom: 16px;
 }
