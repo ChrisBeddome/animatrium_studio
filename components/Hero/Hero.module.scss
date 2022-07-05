@@ -22,6 +22,11 @@
     }
   }
   .hero-right {
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    >div {
+      width: 50%;
+      position: relative;
+    }
   }
 }

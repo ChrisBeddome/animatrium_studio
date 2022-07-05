@@ -23,6 +23,33 @@ export default function Hero() {
             objectFit="cover"
           />
         </div>
+        <div>
+          <Image
+            className={styles["hero-image"]}
+            src="/images/products/3.jpg"
+            priority
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div>
+          <Image
+            className={styles["hero-image"]}
+            src="/images/products/2.jpg"
+            priority
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div>
+          <Image
+            className={styles["hero-image"]}
+            src="/images/products/1.jpg"
+            priority
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       </div>
     </div>
   );
