@@ -1,9 +1,7 @@
-.main-container {
-  width: 100%;
+@import "/styles/variables.scss";
+
+.main {
   max-width: 1200px;
   margin: auto;
-
-  main {
-    padding-top: 35px;
-  }
+  margin-top: $header-height;
 }

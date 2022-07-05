@@ -1,19 +1,23 @@
+@import "/styles/variables.scss";
+
 .header {
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.97);
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
-  > * {
-    flex: 1;
-  }
+  justify-content: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  height: $header-height;
   .navigation {
-    text-align: center;
-    font-size: 14px;
+    margin-left: 15px;
+    font-size: 15px;
     ul {
       li {
-        color: #666;
+        color: #222;
+        font-weight: 600;
         display: inline-block;
         a {
           padding: 0 15px;
@@ -25,19 +29,15 @@
         }
         &:hover,
         &.current-page {
-          color: #333;
           span {
-            border-color: #EEE;
+            border-color: #eee;
           }
-        }
-        &.current-page {
-          font-weight: bold;
         }
       }
     }
   }
   .secondary-navigation {
-    text-align: right;
+    margin-left: auto;
     ul {
       li {
         display: inline;

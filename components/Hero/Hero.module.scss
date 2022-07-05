@@ -1,0 +1,5 @@
+@import "/styles/variables.scss";
+
+.hero {
+  height: calc(100vh - $header-height);
+}

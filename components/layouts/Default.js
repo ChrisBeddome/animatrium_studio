@@ -4,29 +4,27 @@ import Header from "/components/Header/Header";
 const pages = [
   {
     path: "/",
-    text: "Home"
+    text: "Home",
   },
   {
     path: "/shop",
-    text: "Shop"
+    text: "Shop",
   },
   {
     path: "/about",
-    text: "About Us"
+    text: "About Us",
   },
   {
     path: "/contact",
-    text: "Contact"
+    text: "Contact",
   },
 ];
 
 export default function Layout({ children }) {
   return (
     <>
-      <div className={styles["main-container"]}>
-        <Header pages={pages} />
-        <main>{children}</main>
-      </div>
+      <Header pages={pages} />
+      <main className={styles["main"]}>{children}</main>
     </>
   );
 }
