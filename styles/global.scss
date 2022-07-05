@@ -23,10 +23,33 @@ strong {
   font-weight: bold;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $warm-black;
-  font-size: 52px;
   margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 52px;
+}
+h2 {
+  font-size: 44px;
+}
+h3 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 26px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
 }
 
 main.main-content {
