@@ -1,10 +1,16 @@
+@import "/styles/variables.scss";
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
 }
 
+* {
+  font-family: "Assistant", sans-serif;
+  color: $warm-black;
+}
+
 body,
 html {
-  color: #333;
   font-family: "Assistant", sans-serif;
   letter-spacing: 0.6px;
 }
@@ -18,7 +24,13 @@ strong {
 }
 
 h1 {
-  color: black;
+  color: $warm-black;
   font-size: 52px;
   margin-bottom: 16px;
+}
+
+main.main-content {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
 }

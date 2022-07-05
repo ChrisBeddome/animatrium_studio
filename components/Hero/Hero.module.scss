@@ -2,4 +2,26 @@
 
 .hero {
   height: calc(100vh - $header-height);
+  display: flex;
+  >* {
+    flex: 1;
+  }
+  .hero-left {
+    background-color: $warm-black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    button {
+      color: $warm-black;
+      background-color: $primary;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 25px;
+      border-radius: 50px;
+    }
+  }
+  .hero-right {
+    position: relative;
+  }
 }

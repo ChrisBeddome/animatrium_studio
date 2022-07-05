@@ -7,14 +7,20 @@ import { useRouter } from "next/router";
 export default function Header({ pages }) {
   return (
     <header className={styles.header}>
-      <Image src={logo} width={45} height={45}/>
+      <Link href="/">
+        <a>
+          <Image src={logo} width={45} height={45} />
+        </a>
+      </Link>
       <nav className={styles.navigation}>
         <ul>
           {pages.map((page) => {
             return (
               <li key={page.path} className={getLiStyles(page.path)}>
                 <Link href={page.path}>
-                  <a><span>{page.text}</span></a>
+                  <a>
+                    <span>{page.text}</span>
+                  </a>
                 </Link>
               </li>
             );

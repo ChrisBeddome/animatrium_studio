@@ -11,6 +11,7 @@
   padding: 20px;
   box-sizing: border-box;
   height: $header-height;
+  z-index: 100;
   .navigation {
     margin-left: 15px;
     font-size: 15px;
@@ -30,7 +31,7 @@
         &:hover,
         &.current-page {
           span {
-            border-color: #eee;
+            border-color: $primary;
           }
         }
       }
