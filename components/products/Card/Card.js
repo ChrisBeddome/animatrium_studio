@@ -10,6 +10,7 @@ export default function ProductCard({ product }) {
       </div>
       <div className={styles.bottom}>
         <h6>{product.name}</h6>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, autem.</p>
       </div>
     </div>
   );

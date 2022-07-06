@@ -9,18 +9,22 @@
 
   .top {
     position: relative;
-    flex: 3;
+    flex-basis: 66%;
+    flex-shrink: 0;
   }
   .bottom {
-    flex: 1;
+    flex-basis: 34%;
+    flex-shrink: 1;
+    flex-grow: 0;
     position: relative;
     bottom: 20px;
     background-color: #fff;
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 15px;
     h6 {
       font-weight: bold;
+      color: #333;
     }
   }
 }
