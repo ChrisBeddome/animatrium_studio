@@ -35,7 +35,7 @@ export default function AboutPage({}) {
             </p>
           </div>
           <div className={styles.img}>
-            <Image src="/images/things.jpg" width="500" height="500" />
+            <Image src="/images/things.jpg" width="500" height="500" priority />
           </div>
         </section>
       </div>

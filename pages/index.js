@@ -87,6 +87,7 @@ export default function HomePage({}) {
           </div>
           <div className={styles["text"]}>
             <h3>We make jewelry!</h3>
+            <h5>Yer darn right we do!</h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
               consequuntur consequatur maxime maiores, magni odio ratione et
