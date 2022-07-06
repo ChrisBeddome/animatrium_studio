@@ -13,6 +13,9 @@ body,
 html {
   font-family: "Assistant", sans-serif;
   letter-spacing: 0.6px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 p {

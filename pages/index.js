@@ -1,75 +1,152 @@
+import styles from "./index.module.scss";
 import Hero from "/components/Hero/Hero";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage({}) {
   return (
     <>
       <Hero />
-      <main className="main-content">
+      <main className={`main-content ${styles["home-page"]}`}>
+        <h1>We are Animatrium Studio</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ullam
-          libero sint mollitia aliquid hic animi soluta nisi natus enim! Nulla
-          cum impedit quaerat mollitia doloremque ipsam. Esse, rem odit atque
-          magni magnam sit cupiditate explicabo iusto id. Ipsam, quasi? Odio
-          assumenda dolore facere, ea architecto quisquam repudiandae quod quo
-          delectus laborum, nulla quae labore impedit accusantium atque
-          accusamus voluptate vel nam tenetur, ad aspernatur ipsa. Voluptates
-          eaque commodi laudantium assumenda molestias similique at, laboriosam
-          fugiat distinctio atque, vel itaque dicta fugit earum velit minus
-          reiciendis quidem quia? Officiis magnam, magni ipsam provident
-          possimus maiores porro deserunt consequatur aliquam animi quaerat
-          reprehenderit rem ullam incidunt aspernatur deleniti natus adipisci
-          cumque quisquam maxime tempora expedita. Vero, hic! Quisquam odio
-          necessitatibus consequatur natus voluptatibus porro, earum illo et
-          quaerat obcaecati inventore, pariatur aliquam ullam tempora at ut
-          magni perferendis rem culpa vero architecto id? Ex, quod, reiciendis
-          suscipit tempore earum repellendus totam ad beatae cupiditate
-          accusantium esse perferendis rerum similique, nostrum consequuntur
-          maxime! Sapiente illo facere excepturi? Beatae voluptas iusto iste
-          temporibus! Praesentium inventore rerum velit consequuntur at quis
-          delectus ut rem vitae vel iste quaerat corrupti temporibus, aspernatur
-          nemo assumenda corporis, unde magni ratione ad dolorum! Soluta debitis
-          commodi beatae animi placeat. Ad, exercitationem? Repudiandae iusto
-          autem ab! Eius repellat quod ex similique necessitatibus sapiente
-          dolorem. Omnis corporis saepe voluptatum suscipit dolores, assumenda
-          quia magni possimus veniam quae. Quod eius error ipsa laborum
-          dignissimos ut deserunt, tempore placeat itaque eaque nostrum harum
-          voluptatem, saepe delectus veniam, incidunt rerum. Repellat sapiente
-          accusantium maxime porro nisi, repudiandae id tempora exercitationem
-          provident, numquam velit soluta laboriosam accusamus laudantium nam
-          maiores odit modi quos nostrum commodi. Minima porro alias animi qui
-          odit, beatae autem veniam modi ut itaque illo tempore corporis ducimus
-          nisi, consequatur nemo pariatur quod. Ipsum, recusandae. Praesentium
-          quis eum sed, minus atque inventore, impedit quo modi, quasi
-          cupiditate asperiores expedita debitis exercitationem? Quaerat fugit
-          tempore laborum repellat praesentium excepturi! Rem ducimus
-          repudiandae ratione enim pariatur excepturi suscipit recusandae.
-          Aperiam recusandae harum commodi inventore debitis possimus culpa
-          earum beatae a aspernatur. Magni consequuntur, soluta voluptates id
-          illo ut eligendi voluptatem, deleniti nesciunt animi ex fugit
-          temporibus, minus sapiente recusandae maiores reprehenderit vel odio
-          molestias. Alias voluptatibus quasi quo impedit, temporibus officiis,
-          vitae debitis blanditiis eum accusantium, dicta quas. Consequatur
-          nesciunt distinctio aliquid possimus provident expedita sapiente
-          eaque. Ex, quidem. Nemo tenetur eos veniam non, earum ea esse itaque
-          dolores illo! Ut, modi sint. Suscipit amet quos delectus distinctio
-          enim quae a libero repellat! Delectus eius nobis mollitia similique
-          dolorum temporibus perferendis laudantium quis autem doloribus
-          repellendus sit quisquam nulla ut enim nesciunt vel aliquam,
-          recusandae alias iusto veritatis tempore beatae? Quam iure commodi,
-          magni iste inventore odio minus nulla dicta blanditiis at consequuntur
-          officia quae ut dolore, eius repellendus. Necessitatibus facere
-          ducimus quae magnam velit dolore aliquid natus minus ex! Quas, illo
-          mollitia. Porro quaerat nobis harum perferendis culpa ipsam iste
-          explicabo eius alias facilis, a doloremque veniam iusto nemo error
-          adipisci rem magnam architecto. Eum dolore tempora amet. Ducimus neque
-          quos quae?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+          blanditiis modi dolorum, amet saepe quo sapiente deserunt non nam
+          repudiandae illum nesciunt, numquam inventore sed at explicabo odio
+          libero reprehenderit tempora, ex aspernatur quam ullam architecto.
+          Obcaecati quia asperiores totam maxime, quaerat ad, explicabo placeat
+          ipsum tenetur voluptate reiciendis perferendis eos laudantium quod
+          inventore non dolore iusto aliquam sapiente cupiditate ex molestiae
+          harum voluptas architecto. Debitis odio eos commodi nulla perspiciatis
+          nisi sed placeat veritatis eligendi, earum veniam, maiores harum omnis
+          sint incidunt adipisci optio. Reiciendis repudiandae quod mollitia est
+          iusto amet fugiat, illum officiis magnam? Officia aperiam, quasi
+          dolorem, ducimus nobis voluptate odio qui laborum non natus minus cum!
+          Error, quod accusantium cupiditate omnis porro, labore sint velit
+          aperiam sit quia minus iure laudantium reiciendis soluta voluptates
+          aliquam iste quas, unde ipsa? Ullam ad saepe ducimus quis! Delectus
+          impedit sit quod quaerat consequatur vitae unde quas, enim est,
+          dolores ipsum, facilis a labore assumenda vero reprehenderit libero.
+          Rerum possimus animi quidem omnis fugit, a accusantium quam? Sunt,
+          quam dolore. Quos pariatur natus voluptas tempore at rem voluptatum
+          nam magni libero amet doloremque rerum facilis commodi in accusamus
+          voluptatibus consequatur fugiat aspernatur quidem animi, labore itaque
+          odit? Nam, eius eos.
         </p>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <hr />
+        <br />
+        <br />
+        <br />
+        <div className={styles["image-with-header"]}>
+          <div className={styles["text"]}>
+            <h3>We make films!</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
+              explicabo eveniet, culpa vel sapiente autem, nobis eos rem illo
+              ipsum animi, tempore veritatis placeat repellendus. Autem, quo.
+              Quod ipsum soluta labore temporibus officia velit repellat debitis
+              illo placeat ullam praesentium neque, quos voluptatem recusandae
+              eos sequi facilis itaque, dolorem eius nobis iste sed consectetur
+              a! Aperiam iure quo ratione accusamus id. Nostrum reprehenderit
+              sed accusantium ex eaque optio praesentium soluta rerum cumque
+              earum voluptas accusamus, tempora vel ea officiis nobis
+              perspiciatis possimus provident minima cum est et laboriosam iste
+              magni? Nobis tenetur beatae natus suscipit, repellendus aliquid
+              animi explicabo iste dolorum accusamus magni molestiae a nam
+              ducimus architecto ut voluptatem quia dolore officia facilis?
+              Magnam voluptatibus architecto molestias, laboriosam, vitae quae
+              tempore autem mollitia quis voluptatum adipisci explicabo. Dolorem
+              fugiat sapiente eaque nam iste voluptatum eligendi minima dolore!
+              Debitis nihil dolores ab non iste quasi ex, deleniti deserunt
+              voluptates laborum.
+            </p>
+            <br />
+            <br />
+            <Link href="https://www.youtube.com/c/AnimatriumStudio">
+              <a>Check out our YouTube channel</a>
+            </Link>
+          </div>
+          <div className={styles["image"]}>
+            <Image src="/images/still.jpg" width={665} height={520} />
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className={styles["image-with-header"]}>
+          <div className={styles["image"]}>
+            <Image src="/images/neat-things.jpg" width={991} height={978} className={styles.circle}/>
+          </div>
+          <div className={styles["text"]}>
+            <h3>We make jewelry!</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+              consequuntur consequatur maxime maiores, magni odio ratione et
+              explicabo aliquid at totam eos iste. Mollitia ab distinctio veniam
+              vitae incidunt, a nostrum nemo iste nam dolores nihil? Mollitia
+              quis deleniti itaque incidunt magnam enim harum quibusdam corrupti
+              nihil voluptatem repellat facilis autem praesentium, dolores qui
+              officiis ut provident molestias necessitatibus nobis.
+            </p>
+            <br />
+            <br />
+            <Link href="https://www.etsy.com/shop/ClayWithTass">
+              <a>Check out our Etsy shop</a>
+            </Link>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className={styles["image-with-header"]}>
+          <div className={styles["text"]}>
+            <h3>Check us out at RAW Toronto!</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              nesciunt recusandae, tenetur nobis dicta ratione natus praesentium
+              iste voluptas magnam voluptatum laborum accusamus nostrum
+              mollitia, assumenda provident totam dolore unde ex saepe.
+              Temporibus ea sint voluptatibus ab voluptate consectetur accusamus
+              architecto alias rerum. Eum quasi deleniti aperiam tenetur placeat
+              obcaecati maiores, sequi tempora sunt tempore reiciendis numquam
+              odit, consequatur explicabo, similique ex eligendi aspernatur est
+              corrupti doloribus molestiae. Provident harum placeat alias facere
+              explicabo itaque, dolorum, molestias accusamus fuga reiciendis,
+              repellat nihil voluptatem nam perferendis doloremque. Doloremque
+              expedita voluptatum corrupti minima, eaque aliquam pariatur!
+              Ratione perferendis minus quam? Explicabo, ab!
+            </p>
+            <br />
+            <br />
+            <Link href="https://rawartists.com/AnimatriumStudio">
+              <a>Learn more</a>
+            </Link>
+          </div>
+          <div className={styles["image"]}>
+            <Image src="/images/event.jpg" width={740} height={768} />
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </main>
     </>
   );
