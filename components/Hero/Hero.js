@@ -39,8 +39,12 @@ export default function Hero() {
       </div>
       <div className={styles["hero-main"]}>
         <div className={styles.blurry}></div>
-        <h1>Animatrium Studio</h1>
-        <button>Explore</button>
+        <div>
+          <h1>Animatrium Studio</h1>
+        </div>
+        <div>
+          <button>Explore</button>
+        </div>
       </div>
     </div>
   );
