@@ -2,7 +2,7 @@
 
 .header {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.97);
+  background-color: $warm-black;
   position: fixed;
   top: 0;
   display: flex;
@@ -12,17 +12,18 @@
   box-sizing: border-box;
   height: $header-height;
   z-index: 100;
+  opacity: 0.95;
   .navigation {
     margin-left: 15px;
     font-size: 15px;
     ul {
       li {
-        color: #222;
         font-weight: 600;
         display: inline-block;
         a {
           padding: 0 15px;
           span {
+        color: white;
             border-bottom: 2px solid transparent;
             transition: border 100ms ease-in-out;
             padding-bottom: 3px;
@@ -42,6 +43,9 @@
     ul {
       li {
         display: inline;
+        span {
+          color: white;
+        }
       }
     }
   }
