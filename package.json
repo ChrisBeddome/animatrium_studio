@@ -1,5 +1,5 @@
 {
-  "name": "clay_with_tass",
+  "name": "animatrium_studio",
   "version": "1.0.0",
   "description": "eCommerce application built with NextJS",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChrisBeddome/clay_with_tass.git"
+    "url": "git+https://github.com/ChrisBeddome/animatrium_studio.git"
   },
   "author": "Chris Beddome",
   "dependencies": {
