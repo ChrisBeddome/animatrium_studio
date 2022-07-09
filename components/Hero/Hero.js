@@ -11,6 +11,7 @@ export default function Hero() {
             priority
             layout="fill"
             objectFit="cover"
+            sizes="(max-width: 900px) 100vw, 50vw"
           />
         </div>
       </div>
@@ -25,13 +26,14 @@ export default function Hero() {
         </div>
         {[1, 2, 3, 8, 5, 6, 7, 4].map((num) => {
           return (
-            <div>
+            <div key={num}>
               <Image
                 className={styles["hero-image"]}
                 src={`/images/products/${num}.jpg`}
                 priority
                 layout="fill"
                 objectFit="cover"
+                sizes="(max-width: 900px) 0vw, 17vw"
               />
             </div>
           );
