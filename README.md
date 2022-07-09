@@ -1,6 +1,6 @@
-# Clay with Tass
+# Animatrium Studio
 
-Clay with Tass is an ecommerce application built with nextJS
+Animatrium Studio is an ecommerce application built with nextJS
 
 ## Installation
 
