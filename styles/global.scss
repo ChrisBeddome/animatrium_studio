@@ -4,14 +4,16 @@
   font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
 }
 
-* {
-  font-family: "Assistant", sans-serif;
-  color: $warm-black;
+@font-face {
+  font-family: "Arquitecta";
+  src: url("./fonts/Arquitecta.otf");
 }
 
 body,
 html {
-  font-family: "Assistant", sans-serif;
+  font-family: "Arquitecta", sans-serif;
+  font-size: 18px;
+  color: $warm-black;
   letter-spacing: 0.6px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
@@ -19,7 +21,8 @@ html {
 }
 
 p {
-  line-height: 1.8;
+  line-height: 2.0;
+  color: #555;
 }
 
 strong {
@@ -33,7 +36,6 @@ h4,
 h5,
 h6 {
   color: $warm-black;
-  margin-bottom: 16px;
 }
 
 h1 {
@@ -58,5 +60,5 @@ h6 {
 main.main-content {
   max-width: 1400px;
   margin: auto;
-  margin-top: 100px;
+  padding: 50px 0;
 }

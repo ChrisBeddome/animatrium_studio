@@ -1,0 +1,92 @@
+$spacer: 5px !default;
+$spacers: () !default;
+
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer,
+    ),
+    2: (
+      $spacer * 2,
+    ),
+    3: (
+      $spacer * 3,
+    ),
+    4: (
+      $spacer * 4,
+    ),
+    5: (
+      $spacer * 5,
+    ),
+    6: (
+      $spacer * 6,
+    ),
+    7: (
+      $spacer * 7,
+    ),
+    8: (
+      $spacer * 8,
+    ),
+    9: (
+      $spacer * 9,
+    ),
+    10: (
+      $spacer * 10,
+    ),
+  ),
+  $spacers
+);
+@each $size, $length in $spacers {
+  .m-#{$size} {
+    margin: $length !important;
+  }
+  .mt-#{$size} {
+    margin-top: $length !important;
+  }
+  .mb-#{$size} {
+    margin-bottom: $length !important;
+  }
+  .ml-#{$size} {
+    margin-left: $length !important;
+  }
+  .mr-#{$size} {
+    margin-right: $length !important;
+  }
+  .mx-#{$size} {
+    margin-left: $length !important;
+    margin-right: $length !important;
+  }
+  .my-#{$size} {
+    margin-top: $length !important;
+    margin-bottom: $length !important;
+  }
+
+  .p-#{$size} {
+    padding: $length !important;
+  }
+  .pt-#{$size} {
+    padding-top: $length !important;
+  }
+  .pb-#{$size} {
+    padding-bottom: $length !important;
+  }
+  .pl-#{$size} {
+    padding-left: $length !important;
+  }
+  .pr-#{$size} {
+    padding-right: $length !important;
+  }
+  .px-#{$size} {
+    padding-left: $length !important;
+    padding-right: $length !important;
+  }
+  .py-#{$size} {
+    padding-top: $length !important;
+    padding-bottom: $length !important;
+  }
+}
+
+.ma {
+  margin: auto;
+}

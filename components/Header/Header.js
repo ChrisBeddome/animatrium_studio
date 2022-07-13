@@ -1,5 +1,5 @@
 import styles from "./Header.module.scss";
-import logo from "/public/images/logo.svg";
+import logo from "/public/images/logo.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -7,11 +7,13 @@ import { useRouter } from "next/router";
 export default function Header({ pages }) {
   return (
     <header className={styles.header}>
+      <div className={styles.logo}>
       <Link href="/">
         <a>
-          <Image src={logo} width={45} height={45} />
+          <Image priority src={logo} width={35} height={35} />
         </a>
       </Link>
+      </div>
       <nav className={styles.navigation}>
         <ul>
           {pages.map((page) => {

@@ -1,5 +1,6 @@
 import "/styles/reset.scss";
 import "/styles/global.scss";
+import "/styles/spacing.scss";
 
 import DefaultLayout from "/components/layouts/Default";
 

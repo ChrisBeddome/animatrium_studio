@@ -7,12 +7,20 @@ const pages = [
     text: "Home",
   },
   {
-    path: "/shop",
-    text: "Shop",
+    path: "/animatrium-studio",
+    text: "Animatrium Studio",
   },
   {
     path: "/about",
     text: "About Us",
+  },
+  {
+    path: "/shop",
+    text: "Shop All",
+  },
+  {
+    path: "/projects",
+    text: "Art Projects",
   },
   {
     path: "/contact",

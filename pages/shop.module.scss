@@ -1,10 +1,16 @@
 .shop-page {
   ul {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
+    display: block;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 19%);
+    grid-gap: 20px 1%;
+    justify-content: space-around;
+    @media screen and (max-width: 900px) {
+      grid-template-columns: repeat(auto-fill, 24%);
+    }
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(auto-fill, 90%);
+    }
   }
 }

@@ -8,7 +8,7 @@ export default function HomePage({}) {
     <>
       <Hero />
       <main className={`main-content ${styles["home-page"]}`}>
-        <h1>We are Animatrium Studio</h1>
+        <h1 className="mb-3">We are Animatrium Studio</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
           blanditiis modi dolorum, amet saepe quo sapiente deserunt non nam
@@ -43,7 +43,7 @@ export default function HomePage({}) {
         <br />
         <div className={styles["image-with-header"]}>
           <div className={styles["text"]}>
-            <h3>We make films!</h3>
+            <h3 className="mb-3">We make films!</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
               explicabo eveniet, culpa vel sapiente autem, nobis eos rem illo
@@ -86,8 +86,8 @@ export default function HomePage({}) {
             <Image src="/images/neat-things.jpg" width={991} height={978} className={styles.circle}/>
           </div>
           <div className={styles["text"]}>
-            <h3>We make jewelry!</h3>
-            <h5>Yer darn right we do!</h5>
+            <h3 className="mb-2">We make jewelry!</h3>
+            <h5 className="mb-3">Yer darn right we do!</h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
               consequuntur consequatur maxime maiores, magni odio ratione et
@@ -113,7 +113,7 @@ export default function HomePage({}) {
         <br />
         <div className={styles["image-with-header"]}>
           <div className={styles["text"]}>
-            <h3>Check us out at RAW Toronto!</h3>
+            <h3 className="mb-3">Check us out at RAW Toronto!</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
               nesciunt recusandae, tenetur nobis dicta ratione natus praesentium
