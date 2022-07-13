@@ -13,6 +13,7 @@ export default function Document() {
       </Head>
       <body>
         <Main />
+        <div id="nav-overlay"></div>
         <NextScript />
       </body>
     </Html>

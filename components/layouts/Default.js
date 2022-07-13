@@ -7,12 +7,12 @@ const pages = [
     text: "Home",
   },
   {
-    path: "/animatrium-studio",
-    text: "Animatrium Studio",
+    path: "/about",
+    text: "About",
   },
   {
-    path: "/about",
-    text: "About Us",
+    path: "/animatrium-studio",
+    text: "Animatrium Studio",
   },
   {
     path: "/shop",

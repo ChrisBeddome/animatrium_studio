@@ -61,4 +61,10 @@ main.main-content {
   max-width: 1400px;
   margin: auto;
   padding: 50px 0;
+  @media screen and (max-width: 1450px) {
+    padding: 50px 30px;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 40px 20px;
+  }
 }

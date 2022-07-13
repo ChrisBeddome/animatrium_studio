@@ -13,6 +13,9 @@
   height: $header-height;
   z-index: 100;
   opacity: 0.96;
+  .title {
+    display: none;
+  }
   .logo {
     position: relative;
     top: 2px;
@@ -27,7 +30,7 @@
         a {
           padding: 0 20px;
           span {
-        color: white;
+            color: white;
             border-bottom: 2px solid transparent;
             transition: border 100ms ease-in-out;
             padding-bottom: 3px;
@@ -51,6 +54,29 @@
           color: white;
         }
       }
+    }
+  }
+  .hamburger {
+    position: relative;
+    display: none;
+  }
+  @media screen and (max-width: 900px) {
+    .title {
+      display: block;
+      font-size: 18px;
+      color: white;
+      text-transform: uppercase;
+      margin-left: 20px;
+    }
+    .hamburger {
+      display: block;
+      margin-left: auto;
+    }
+    .navigation {
+      display: none;
+    }
+    .secondary-navigation {
+      display: none;
     }
   }
 }
