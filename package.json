@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node ./bin/dev.js",
     "build": "next build",
-    "start": "next start"
+    "start": "node ./bin/start.js"
   },
   "repository": {
     "type": "git",
