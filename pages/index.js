@@ -33,14 +33,7 @@ export default function HomePage({}) {
           voluptatibus consequatur fugiat aspernatur quidem animi, labore itaque
           odit? Nam, eius eos.
         </p>
-        <br />
-        <br />
-        <br />
-        <br />
         <hr />
-        <br />
-        <br />
-        <br />
         <div className={styles["image-with-header"]}>
           <div className={styles["text"]}>
             <h3 className="mb-3">We make films!</h3>
@@ -64,30 +57,28 @@ export default function HomePage({}) {
               Debitis nihil dolores ab non iste quasi ex, deleniti deserunt
               voluptates laborum.
             </p>
-            <br />
-            <br />
-            <Link href="https://www.youtube.com/c/AnimatriumStudio">
-              <a>Check out our YouTube channel</a>
-            </Link>
+            <div className={styles.link}>
+              <Link href="https://www.youtube.com/c/AnimatriumStudio">
+                <a>Check out our YouTube channel</a>
+              </Link>
+            </div>
           </div>
           <div className={styles["image"]}>
             <Image src="/images/still.jpg" width={665} height={520} />
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <hr />
         <div className={styles["image-with-header"]}>
           <div className={styles["image"]}>
-            <Image src="/images/neat-things.jpg" width={991} height={978} className={styles.circle}/>
+            <Image
+              src="/images/neat-things.jpg"
+              width={991}
+              height={978}
+              className={styles.circle}
+            />
           </div>
           <div className={styles["text"]}>
             <h3 className="mb-2">We make jewelry!</h3>
-            <h5 className="mb-3">Yer darn right we do!</h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
               consequuntur consequatur maxime maiores, magni odio ratione et
@@ -97,20 +88,14 @@ export default function HomePage({}) {
               nihil voluptatem repellat facilis autem praesentium, dolores qui
               officiis ut provident molestias necessitatibus nobis.
             </p>
-            <br />
-            <br />
-            <Link href="https://www.etsy.com/shop/ClayWithTass">
-              <a>Check out our Etsy shop</a>
-            </Link>
+            <div className={styles.link}>
+              <Link href="https://www.etsy.com/shop/ClayWithTass">
+                <a>Check out our Etsy shop</a>
+              </Link>
+            </div>
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <hr />
         <div className={styles["image-with-header"]}>
           <div className={styles["text"]}>
             <h3 className="mb-3">Check us out at RAW Toronto!</h3>
@@ -129,25 +114,16 @@ export default function HomePage({}) {
               expedita voluptatum corrupti minima, eaque aliquam pariatur!
               Ratione perferendis minus quam? Explicabo, ab!
             </p>
-            <br />
-            <br />
-            <Link href="https://rawartists.com/AnimatriumStudio">
-              <a>Learn more</a>
-            </Link>
+            <div className={styles.link}>
+              <Link href="https://rawartists.com/AnimatriumStudio">
+                <a>Learn more</a>
+              </Link>
+            </div>
           </div>
           <div className={styles["image"]}>
             <Image src="/images/event.jpg" width={740} height={768} />
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </main>
     </>
   );

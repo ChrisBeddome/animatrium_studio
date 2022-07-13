@@ -64,6 +64,11 @@ main.main-content {
   @media screen and (max-width: 1450px) {
     padding: 50px 30px;
   }
+  @media screen and (max-width: 1000px) {
+    h1 {
+      text-align: center;
+    }
+  }
   @media screen and (max-width: 500px) {
     padding: 40px 20px;
   }

@@ -12,7 +12,7 @@ export default function ProductCard({ product }) {
           src={product.src}
           layout="fill"
           objectFit="cover"
-          sizes="(max-width: 520px) 500px, 230px"
+          sizes="(max-width: 550px) 500px, 230px"
         />
       </div>
       <div className={styles.bottom}>

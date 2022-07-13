@@ -3,11 +3,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .img img {
-      border-radius: 600px;
+    gap: 80px;
+    .img {
+      flex: 1;
+      img {
+        border-radius: 1000px;
+      }
     }
     .blurb {
-      max-width: 50%;
+      flex: 1;
       padding-right: 20px;
       ul {
         margin-left: 40px;
@@ -15,6 +19,18 @@
         li {
           margin-bottom: 16px;
         }
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      gap: 0px;
+      .img {
+        order: 1;
+        margin: 50px 0;
+        max-width: 300px;
+      }
+      .blurb {
+        order: 2;
       }
     }
   }
