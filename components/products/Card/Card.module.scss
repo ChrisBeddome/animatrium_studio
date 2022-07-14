@@ -1,24 +1,24 @@
 @import "/styles/variables.scss";
 
 .card {
-  height: 360px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   overflow: hidden;
-  border-radius: 5px;
-  border: 1px solid #DDD;
   transition: all 250ms;
+  border-radius: 20px;
   .top {
     position: relative;
-    flex-basis: 63%;
+    flex-basis: 66%;
     flex-shrink: 0;
     overflow: hidden;
   }
   .bottom {
+    background-color: #26242b;
     padding: 14px;
-    flex-basis: 37%;
+    flex-basis: 34%;
     flex-shrink: 1;
     flex-grow: 0;
     display: flex;
@@ -29,10 +29,10 @@
       overflow: hidden;
       padding: 1px;
       white-space: nowrap;
-      color: #333;
+      color: white;
     }
     p {
-      color: #999;
+      color: #DDD;
       font-size: 14px;
       line-height: 1.4;
       display: -webkit-box;
@@ -45,7 +45,7 @@
       margin-top: auto;
       h5 {
         font-weight: 800;
-        color: #333;
+        color: white;
       }
     }
   }
@@ -53,10 +53,13 @@
     transition: all 250ms;
   }
   &:hover {
-    box-shadow: 0px 0px 5px 5px #DFDFDF;
+    box-shadow: 0px 0px 10px 5px #AAA;
     transform: scale(1.03);
     img {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
+  }
+  @media screen and (max-width: 550px) {
+    height: 500px;
   }
 }
