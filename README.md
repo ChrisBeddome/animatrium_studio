@@ -23,10 +23,15 @@ DB_USER = animatrium_admin
 DB_PASSWORD = password
 ```
 
-## Seed database schema
+## init database schema
 
 ```bash
- TODO
+  npm run db_init
+```
+## seed database
+
+```bash
+  npm run db_seed
 ```
 
 ## Usage

@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "node ./bin/dev.js",
     "build": "next build",
-    "start": "node ./bin/start.js"
+    "start": "node ./bin/start.js",
+    "db_init": "node ./bin/dbInit.js",
+    "db_seed": "node ./bin/dbSeed.js"
   },
   "repository": {
     "type": "git",
