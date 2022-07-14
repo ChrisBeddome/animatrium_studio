@@ -20,6 +20,7 @@ export default function Hero() {
             src="/images/neat-things.jpg"
             layout="fill"
             objectFit="cover"
+            quality={5}
           />
         </div>
         {[1, 2, 3, 8, 5, 6, 7, 4].map((num) => {
