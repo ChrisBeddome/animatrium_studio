@@ -7,7 +7,7 @@
   flex-direction: column;
   box-sizing: border-box;
   overflow: hidden;
-  transition: all 250ms;
+  transition: transform 250ms, box-shadow 250ms;
   border-radius: 20px;
   .top {
     position: relative;
