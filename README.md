@@ -17,11 +17,10 @@ create `.env.local` file in the project root directory using the template:
 NEXT_HOSTNAME = localhost
 NEXT_PORT = 3000
 
-DB_NAME=animatrium_studio
+DB_NAME = animatrium_studio
 DB_HOSTNAME = 127.0.0.1
-DB_PORT=3306
-DB_USER=animatrium_admin
-DB_PASSWORD=password
+DB_USER = animatrium_admin
+DB_PASSWORD = password
 ```
 
 ## Seed database schema

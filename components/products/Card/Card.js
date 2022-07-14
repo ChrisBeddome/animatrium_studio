@@ -9,10 +9,10 @@ export default function ProductCard({ product }) {
     <div className={styles.card}>
       <div className={styles.top}>
         <Image
-          src={product.src}
+          src={product.imageUrl}
           layout="fill"
           objectFit="cover"
-          sizes="(max-width: 550px) 500px, 230px"
+          sizes="(max-width: 550px) 550px, 230px"
           quality={25}
         />
       </div>
