@@ -30,6 +30,7 @@ export default function Hero() {
                 layout="fill"
                 objectFit="cover"
                 sizes="(max-width: 800px) 0vw, (max-width: 1100px) 50vw, 17vw"
+                quality={5}
               />
             </div>
           );

@@ -13,6 +13,7 @@ export default function ProductCard({ product }) {
           layout="fill"
           objectFit="cover"
           sizes="(max-width: 550px) 500px, 230px"
+          quality={25}
         />
       </div>
       <div className={styles.bottom}>
