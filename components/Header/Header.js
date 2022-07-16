@@ -34,7 +34,7 @@ export default function Header({ pages }) {
       <MobileNav active={mobileNavActive} onCloseClick={closeMobileNav}>
         <ul>
         {pages.map(page => (
-          <li><Link href={`supersecretsection/${page.path}`}><a onClick={closeMobileNav}><h3>{page.text}</h3></a></Link></li>
+          <li><Link href={`supersecretsection${page.path}`}><a onClick={closeMobileNav}><h3>{page.text}</h3></a></Link></li>
         ))}
         </ul>
         <ul>
@@ -46,7 +46,7 @@ export default function Header({ pages }) {
           {pages.map((page) => {
             return (
               <li key={page.path} className={getLiStyles(page.path)}>
-                <Link href={`/supersecretsection/${page.path}`}>
+                <Link href={`/supersecretsection${page.path}`}>
                   <a>
                     <span>{page.text}</span>
                   </a>
