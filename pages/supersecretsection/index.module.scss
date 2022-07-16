@@ -1,0 +1,61 @@
+@import "/styles/variables.scss";
+.home-page {
+  hr {
+    background-color: #f5f5f5;
+    height: 2px;
+    border: none;
+    margin: 70px 0;
+  }
+  .image-with-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    .text {
+      flex: 1.5;
+      a {
+        display: inline-block;
+        margin-top: 50px;
+        padding: 15px;
+        background-color: $warm-black;
+        border-radius: 4px;
+        color: white;
+        font-size: 20px;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        &:hover {
+          text-decoration-color: white;
+        }
+        transition: all 100ms ease-in-out;
+      }
+    }
+    .image {
+      flex: 1;
+      .circle {
+        border-radius: 500px;
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      gap: 60px;
+      .image {
+        max-width: 500px;
+        order: 1;
+      }
+      .text {
+        h3 {
+          text-align: center;
+        }
+        order: 2;
+        .link {
+          text-align: center;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+    }
+}
