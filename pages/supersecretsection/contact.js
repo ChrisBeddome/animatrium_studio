@@ -5,3 +5,5 @@ export default function ContactPage({}) {
     </main>
   );
 }
+
+ContactPage.displayName = "Contact";

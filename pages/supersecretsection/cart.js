@@ -5,3 +5,5 @@ export default function CartPage({}) {
     </main>
   );
 }
+
+CartPage.displayName = "My Cart"

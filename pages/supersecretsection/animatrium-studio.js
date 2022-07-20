@@ -5,3 +5,5 @@ export default function AnimatriumStudioPage({}) {
     </main>
   );
 }
+
+AnimatriumStudioPage.displayName = "Animatrium Studio"

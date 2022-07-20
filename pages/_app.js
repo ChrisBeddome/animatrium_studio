@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Animatrium Studio</title>
+        <title>{`Animatrium Studio ${Component.displayName ? " - " + Component.displayName : ""}` }</title>
       </Head>
       <Layout>
         <Component {...pageProps}></Component>

@@ -42,3 +42,5 @@ export default function AboutPage({}) {
     </main>
   );
 }
+
+AboutPage.displayName = "About"

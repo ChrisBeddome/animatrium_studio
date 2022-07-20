@@ -33,3 +33,5 @@ export async function getStaticProps() {
     },
   };
 }
+
+ShopPage.displayName = "Shop";
