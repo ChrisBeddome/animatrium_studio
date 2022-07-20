@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node ./bin/dev.js",
+    "dev": "node ./bin/dev.js 2>&1 | tee -a ./logs/dev.txt",
     "build": "next build",
-    "start": "node ./bin/start.js",
+    "start": "node ./bin/start.js 2>&1 | tee -a ./logs/prod.txt",
     "db_init": "node ./bin/dbInit.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
