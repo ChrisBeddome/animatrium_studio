@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutPage({}) {
   return (
-    <main className="main-content">
+    <main className="content-wrapper">
       <div className={styles["about-page"]}>
         <h1>About Us</h1>
         <section>

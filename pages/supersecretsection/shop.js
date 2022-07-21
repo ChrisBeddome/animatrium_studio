@@ -5,7 +5,7 @@ import Product from "/models/product";
 
 export default function ShopPage({ products }) {
   return (
-    <main className="main-content">
+    <main className="content-wrapper">
       <div className={styles["shop-page"]}>
         <ul>
           {products.map((product) => {

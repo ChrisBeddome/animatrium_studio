@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 export default function ProductPage({}) {
   const router = useRouter();
   return (
-    <main className="main-content">
+    <main className="content-wrapper">
       <h1>{router.query.id}</h1>
     </main>
   );

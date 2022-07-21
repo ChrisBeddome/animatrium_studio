@@ -1,6 +1,6 @@
 export default function ProjectsPage({}) {
   return (
-    <main className="main-content">
+    <main className="content-wrapper">
       <h1>Art Projects</h1>
     </main>
   );
