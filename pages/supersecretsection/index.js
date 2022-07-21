@@ -2,6 +2,7 @@ import styles from "./index.module.scss";
 import Hero from "/components/Hero/Hero";
 import Image from "next/image";
 import Link from "next/link";
+import logo from "/public/images/logo.png";
 
 export default function HomePage({}) {
   return (
@@ -37,6 +38,7 @@ export default function HomePage({}) {
               quidem animi, labore itaque odit? Nam, eius eos.
             </p>
           </div>
+        <div className={styles["logo-separator"]}><Image src={logo} width={60} height={60} /></div>
         </section>
         <section>
           <div className="content-wrapper">

@@ -2,6 +2,66 @@
 .home-page {
   section {
     padding: 60px 0;
+    position: relative;
+    .image-with-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 80px;
+      .text {
+        flex: 1.5;
+        a {
+          display: inline-block;
+          margin-top: 50px;
+          padding: 15px;
+          background-color: $warm-black;
+          border-radius: 4px;
+          color: white;
+          font-size: 20px;
+          text-decoration: underline;
+          text-decoration-color: transparent;
+          &:hover {
+            text-decoration-color: white;
+          }
+          transition: all 100ms ease-in-out;
+        }
+      }
+      .image {
+        flex: 1;
+        .circle {
+          border-radius: 500px;
+        }
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      .image-with-header {
+        flex-direction: column;
+        gap: 60px;
+        .image {
+          max-width: 500px;
+          order: 1;
+        }
+        .text {
+          h3 {
+            text-align: center;
+          }
+          order: 2;
+          .link {
+            text-align: center;
+          }
+        }
+      }
+      .logo-separator {
+        display: none;
+      }
+    }
+    .logo-separator {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: -31px;
+      z-index: 2;
+    }
   }
   section:nth-child(even) {
     background-color: #111;
@@ -19,53 +79,6 @@
           &:hover {
             text-decoration-color: $warm-black;
           }
-        }
-      }
-    }
-  }
-  .image-with-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
-    .text {
-      flex: 1.5;
-      a {
-        display: inline-block;
-        margin-top: 50px;
-        padding: 15px;
-        background-color: $warm-black;
-        border-radius: 4px;
-        color: white;
-        font-size: 20px;
-        text-decoration: underline;
-        text-decoration-color: transparent;
-        &:hover {
-          text-decoration-color: white;
-        }
-        transition: all 100ms ease-in-out;
-      }
-    }
-    .image {
-      flex: 1;
-      .circle {
-        border-radius: 500px;
-      }
-    }
-    @media screen and (max-width: 1000px) {
-      flex-direction: column;
-      gap: 60px;
-      .image {
-        max-width: 500px;
-        order: 1;
-      }
-      .text {
-        h3 {
-          text-align: center;
-        }
-        order: 2;
-        .link {
-          text-align: center;
         }
       }
     }

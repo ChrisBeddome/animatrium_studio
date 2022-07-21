@@ -57,6 +57,11 @@ h6 {
   font-size: 16px;
 }
 
+main {
+  min-height: calc(100vh - $header-height - $footer-height);
+  box-sizing: border-box;
+}
+
 .content-wrapper {
   max-width: 1400px;
   margin: auto;

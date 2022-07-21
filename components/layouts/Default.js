@@ -1,5 +1,6 @@
 import styles from "./Default.module.scss";
 import Header from "/components/Header/Header";
+import Footer from "/components/Footer/Footer";
 
 const pages = [
   {
@@ -33,6 +34,7 @@ export default function Layout({ children }) {
     <>
       <Header pages={pages} />
       <div className={styles["main-container"]}>{children}</div>
+      <Footer></Footer>
     </>
   );
 }
