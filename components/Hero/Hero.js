@@ -7,7 +7,7 @@ export default function Hero() {
     <div className={styles.hero}>
       <div className={styles["hero-left"]}>
         <Image
-          src={`/images/spacestuff.jpg`}
+          src="/images/hero-animatrium.jpg"
           priority
           layout="fill"
           objectFit="cover"
@@ -17,25 +17,12 @@ export default function Hero() {
       <div className={styles["hero-right"]}>
         <div>
           <Image
-            src="/images/neat-things.jpg"
+            src="/images/hero-clay.jpeg"
             layout="fill"
             objectFit="cover"
-            quality={5}
+            sizes="(max-width: 800px) 0vw, (max-width: 1100px) 50vw"
           />
         </div>
-        {[1, 2, 3, 8, 5, 6, 7, 4].map((num) => {
-          return (
-            <div key={num}>
-              <Image
-                src={`/images/products/${num}.jpg`}
-                layout="fill"
-                objectFit="cover"
-                sizes="(max-width: 800px) 0vw, (max-width: 1100px) 50vw, 17vw"
-                quality={5}
-              />
-            </div>
-          );
-        })}
       </div>
       <div className={styles["hero-main"]}>
         <h1>
