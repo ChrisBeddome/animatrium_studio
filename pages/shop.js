@@ -11,7 +11,7 @@ export default function ShopPage({ products }) {
           {products.map((product) => {
             return (
               <li key={product.id}>
-                <Link href={`/supersecretsection/products/${product.id}`}>
+                <Link href={`/products/${product.id}`}>
                   <a>
                     <ProductCard product={product}></ProductCard>
                   </a>

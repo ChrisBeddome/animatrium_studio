@@ -11,38 +11,23 @@ export default function Footer() {
       <nav>
         <ul>
           <li>
-            <Link href="https://www.instagram.com/animatrium_studio/">
+            <Link href="https://youtube.com/animatriumstudio">
               <a>
-                <Image
-                  src={instagramLogo}
-                  layout="fill"
-                  objectFit="contain"
-                  sizes="30px"
-                />
+                <Image src={youtubeLogo} height={18} width={25} />
               </a>
             </Link>
           </li>
           <li>
-            <Link href="https://youtube.com/animatriumstudio">
+            <Link href="https://www.instagram.com/animatrium_studio/">
               <a>
-                <Image
-                  src={youtubeLogo}
-                  layout="fill"
-                  objectFit="contain"
-                  sizes="30px"
-                />
+                <Image src={instagramLogo} height={25} width={25} />
               </a>
             </Link>
           </li>
           <li>
             <Link href="https://www.facebook.com/AnimatriumStudio/">
               <a>
-                <Image
-                  src={facebookLogo}
-                  layout="fill"
-                  objectFit="contain"
-                  sizes="30px"
-                />
+                <Image src={facebookLogo} height={25} width={25} />
               </a>
             </Link>
           </li>

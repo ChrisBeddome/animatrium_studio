@@ -21,7 +21,7 @@ export default function Header({ pages }) {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link href="/supersecretsection">
+        <Link href="/">
           <a>
             <Image src={logo} width={35} height={35} />
           </a>
@@ -34,11 +34,11 @@ export default function Header({ pages }) {
       <MobileNav active={mobileNavActive} onCloseClick={closeMobileNav}>
         <ul>
         {pages.map(page => (
-          <li key={page.path}><Link href={`/supersecretsection${page.path}`}><a onClick={closeMobileNav}><h3>{page.text}</h3></a></Link></li>
+          <li key={page.path}><Link href={`/${page.path}`}><a onClick={closeMobileNav}><h3>{page.text}</h3></a></Link></li>
         ))}
         </ul>
         <ul>
-          <li><Link href="/supersecretsection/cart"><a onClick={closeMobileNav}><h3>View Cart</h3></a></Link></li>
+          <li><Link href="/cart"><a onClick={closeMobileNav}><h3>View Cart</h3></a></Link></li>
         </ul>
       </MobileNav>
       <nav className={styles.navigation}>
@@ -46,7 +46,7 @@ export default function Header({ pages }) {
           {pages.map((page) => {
             return (
               <li key={page.path} className={getLiStyles(page.path)}>
-                <Link href={`/supersecretsection${page.path}`}>
+                <Link href={`/${page.path}`}>
                   <a>
                     <span>{page.text}</span>
                   </a>
@@ -59,7 +59,7 @@ export default function Header({ pages }) {
       <nav className={styles["secondary-navigation"]}>
         <ul>
           <li>
-            <Link href="/supersecretsection/cart"><a><span className="material-symbols-outlined">shopping_cart</span></a></Link>
+            <Link href="/cart"><a><span className="material-symbols-outlined">shopping_cart</span></a></Link>
           </li>
         </ul>
       </nav>
