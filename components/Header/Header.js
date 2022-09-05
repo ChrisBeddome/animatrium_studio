@@ -20,6 +20,7 @@ export default function Header({ pages }) {
 
   return (
     <header className={styles.header}>
+
       <div className={styles.logo}>
         <Link href="/">
           <a>
@@ -27,10 +28,13 @@ export default function Header({ pages }) {
           </a>
         </Link>
       </div>
+
       <h1 className={styles.title}>Animatrium Studio</h1>
+
       <div onClick={onHamburgerClick}className={styles.hamburger}>
         <Hamburger></Hamburger>
       </div>
+
       <MobileNav active={mobileNavActive} onCloseClick={closeMobileNav}>
         <ul>
         {pages.map(page => (
@@ -41,6 +45,7 @@ export default function Header({ pages }) {
           <li><Link href="/cart"><a onClick={closeMobileNav}><h3>View Cart</h3></a></Link></li>
         </ul>
       </MobileNav>
+
       <nav className={styles.navigation}>
         <ul>
           {pages.map((page) => {
@@ -56,6 +61,7 @@ export default function Header({ pages }) {
           })}
         </ul>
       </nav>
+
       <nav className={styles["secondary-navigation"]}>
         <ul>
           <li>
@@ -63,6 +69,7 @@ export default function Header({ pages }) {
           </li>
         </ul>
       </nav>
+
     </header>
   );
 }
