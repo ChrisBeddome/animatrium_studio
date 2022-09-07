@@ -32,7 +32,7 @@ const pages = [
 export default function Layout({ children }) {
   return (
     <>
-      {/* <Header pages={pages} /> */}
+      <Header pages={pages} />
       <div className={styles["main-container"]}>{children}</div>
       <Footer></Footer>
     </>

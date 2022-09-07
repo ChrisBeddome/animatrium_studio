@@ -30,9 +30,9 @@ export default function Hero() {
           <br />
           Studio
         </h1>
-        {/* <Link href="/shop">
+        {<Link href="/shop">
           <a>Explore</a>
-        </Link> */}
+        </Link>}
       </div>
     </div>
   );

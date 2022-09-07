@@ -13,21 +13,21 @@ export default function Footer() {
           <li>
             <Link href="https://youtube.com/animatriumstudio">
               <a>
-                <Image src={youtubeLogo} height={18} width={25} />
+                <Image src={youtubeLogo} height={16} width={22} />
               </a>
             </Link>
           </li>
           <li>
             <Link href="https://www.instagram.com/animatrium_studio/">
               <a>
-                <Image src={instagramLogo} height={25} width={25} />
+                <Image src={instagramLogo} height={20} width={20} />
               </a>
             </Link>
           </li>
           <li>
             <Link href="https://www.facebook.com/AnimatriumStudio/">
               <a>
-                <Image src={facebookLogo} height={25} width={25} />
+                <Image src={facebookLogo} height={20} width={20} />
               </a>
             </Link>
           </li>
