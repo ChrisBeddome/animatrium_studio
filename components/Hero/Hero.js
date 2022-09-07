@@ -20,7 +20,7 @@ export default function Hero() {
             src="/images/hero-clay.jpeg"
             layout="fill"
             objectFit="cover"
-            sizes="(max-width: 800px) 0vw, (max-width: 1100px) 50vw"
+            sizes="(max-width: 800px) 0vw, 50vw"
           />
         </div>
       </div>

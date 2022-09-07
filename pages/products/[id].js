@@ -11,7 +11,14 @@ export default function ProductPage({product}) {
         <div className={styles['product-page']}>
           <section className={styles['product-info']}>
             <div className={styles['img-container']}>
-              {<Image src={product.imageUrl} layout="fill" objectFit="cover" /> }
+              {<Image 
+                priority 
+                src={product.imageUrl} 
+                layout="fill" 
+                objectFit="cover" 
+                sizes="50vw"
+                alt={product.name} 
+              /> }
             </div>
             <div>
               <h2 className="mb-3">{product.name}</h2>
