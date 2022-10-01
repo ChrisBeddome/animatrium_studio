@@ -4,9 +4,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.resolve(".env.local") });
 import throwMissingVarError from "../lib/throwMissingVarError.js";
 
-// prettier-ignore
 const PORT = parseInt(process.env.NEXT_PORT) || (() => {throwMissingVarError("NEXT_PORT")})();
-// prettier-ignore
 const HOSTNAME = process.env.NEXT_HOSTNAME   || (() => {throwMissingVarError("NEXT_HOSTNAME")})();
 
 const serverProcess = exec(
