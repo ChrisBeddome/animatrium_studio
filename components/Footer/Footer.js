@@ -29,7 +29,7 @@ const socialMediaSites = [
 
 const socialMediaLis = socialMediaSites.map(site => {
   return (
-    <li>
+    <li key={site.href}>
       <SocialMediaLink 
         href={site.href}
         imgSrc={site.imgSrc}

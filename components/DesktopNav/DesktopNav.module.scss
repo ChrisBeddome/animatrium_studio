@@ -1,0 +1,36 @@
+.navigation {
+  margin-left: 15px;
+  font-size: 15px;
+  ul {
+    li {
+      font-weight: 600;
+      display: inline-block;
+      a {
+        padding: 0 20px;
+        span {
+          color: white;
+          border-bottom: 2px solid transparent;
+          transition: border 100ms ease-in-out;
+          padding-bottom: 3px;
+        }
+      }
+      &:hover,
+      &.current-page {
+        span {
+          border-color: white;
+        }
+      }
+    }
+  }
+}
+.secondary-navigation {
+  margin-left: auto;
+  ul {
+    li {
+      display: inline;
+      span {
+        color: white;
+      }
+    }
+  }
+}
