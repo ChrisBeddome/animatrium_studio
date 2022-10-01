@@ -14,7 +14,7 @@
           display: inline-block;
           margin-top: 50px;
           padding: 15px;
-          background-color: $warm-black;
+          background-color: $black;
           border-radius: 4px;
           color: white;
           font-size: 20px;
@@ -64,7 +64,7 @@
     }
   }
   section:nth-child(even) {
-    background-color: #111;
+    background-color: $black;
     .image-with-header {
       .text {
         p {

@@ -2,7 +2,7 @@
 
 .header {
   width: 100%;
-  background-color: $warm-black;
+  background-color: $header-footer-bg-color;
   position: fixed;
   top: 0;
   display: flex;
@@ -12,7 +12,6 @@
   box-sizing: border-box;
   height: $header-height;
   z-index: 100;
-  opacity: 0.96;
   .title {
     display: none;
   }
