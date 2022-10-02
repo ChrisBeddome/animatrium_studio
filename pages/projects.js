@@ -1,8 +1,10 @@
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper";
+
 export default function ProjectsPage({}) {
   return (
-    <main className="content-wrapper">
+    <MainContentWrapper>
       <h1>Art Projects</h1>
-    </main>
+    </MainContentWrapper>
   );
 }
 

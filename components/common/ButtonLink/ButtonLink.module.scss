@@ -1,0 +1,29 @@
+@import "/styles/variables.scss";
+
+.button-link {
+	a {
+		display: inline-block;
+		margin-top: 50px;
+		padding: 15px;
+		background-color: $black;
+		border-radius: 4px;
+		color: white;
+		font-size: 20px;
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		&:hover {
+			text-decoration-color: white;
+		}
+		transition: all 100ms ease-in-out;
+	}
+
+	&.dark {
+    a {
+      background-color: white;
+      color: $warm-black;
+      &:hover {
+        text-decoration-color: $warm-black;
+      }
+    }
+	}
+}

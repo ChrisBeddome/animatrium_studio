@@ -29,7 +29,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header pages={pages} />
-      <div className={styles["main-container"]}>{children}</div>
+        <main className={styles["default-layout"]}>{children}</main>
       <Footer></Footer>
     </>
   );

@@ -1,12 +1,17 @@
 import styles from "./shop.module.scss";
+
 import Link from "next/link";
-import ProductCard from "/components/products/Card/Card";
+
 import Product from "/models/product";
+
+import ProductCard from "/components/products/Card/Card";
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper";
+
 
 export default function ShopPage({ products }) {
   return (
-    <main className="content-wrapper">
-      <div className={styles["shop-page"]}>
+    <div className={styles["shop-page"]}>
+      <MainContentWrapper>
         <ul>
           {products.map((product) => {
             return (
@@ -20,8 +25,8 @@ export default function ShopPage({ products }) {
             );
           })}
         </ul>
-      </div>
-    </main>
+      </MainContentWrapper>
+    </div>
   );
 }
 

@@ -1,0 +1,38 @@
+@import "/styles/variables.scss";
+
+.main-content-wrapper {
+  background-color: white;
+  p {
+    color: #555;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: $warm-black;
+  }
+
+  >.content {
+    max-width: 1400px;
+    margin: auto;
+    padding: 50px 0;
+    @media screen and (max-width: 1450px) {
+      padding: 50px 30px;
+    }
+    @media screen and (max-width: 1000px) {
+      h1 {
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      padding: 40px 20px;
+    }
+  }
+
+  &.dark {
+    background-color: $black;
+    h1, h2, h3, h4, h5, h6 {
+      color: white;
+    }
+    p {
+      color: #ccc;
+    }
+  }
+}

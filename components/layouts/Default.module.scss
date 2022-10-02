@@ -1,5 +1,7 @@
 @import "/styles/variables.scss";
 
-.main-container {
+main.default-layout {
   margin-top: $header-height;
+  min-height: calc(100vh - $header-height - $footer-height);
+  box-sizing: border-box;
 }

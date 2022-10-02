@@ -1,4 +1,5 @@
 @import "/styles/variables.scss";
+
 .home-page {
   section {
     padding: 120px 0;
@@ -10,21 +11,6 @@
       gap: 80px;
       .text {
         flex: 2;
-        a {
-          display: inline-block;
-          margin-top: 50px;
-          padding: 15px;
-          background-color: $black;
-          border-radius: 4px;
-          color: white;
-          font-size: 20px;
-          text-decoration: underline;
-          text-decoration-color: transparent;
-          &:hover {
-            text-decoration-color: white;
-          }
-          transition: all 100ms ease-in-out;
-        }
       }
       .image {
         flex: 1;
@@ -46,7 +32,7 @@
             text-align: center;
           }
           order: 2;
-          .link {
+          .external-link {
             text-align: center;
           }
         }
@@ -59,28 +45,8 @@
       position: absolute;
       left: 50%;
       transform: translate(-50%);
-      bottom: -33px;
+      bottom: -82px;
       z-index: 2;
-    }
-  }
-  section:nth-child(even) {
-    background-color: $black;
-    .image-with-header {
-      .text {
-        p {
-          color: #ccc;
-        }
-        h3 {
-          color: white;
-        }
-        a {
-          background-color: white;
-          color: $warm-black;
-          &:hover {
-            text-decoration-color: $warm-black;
-          }
-        }
-      }
     }
   }
   @media screen and (max-width: 600px) {
@@ -89,3 +55,4 @@
     }
   }
 }
+

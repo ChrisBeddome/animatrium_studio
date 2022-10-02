@@ -1,8 +1,10 @@
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper";
+
 export default function ContactPage({}) {
   return (
-    <main className="content-wrapper">
+    <MainContentWrapper>
       <h1>Contact</h1>
-    </main>
+    </MainContentWrapper>
   );
 }
 

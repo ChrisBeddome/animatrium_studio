@@ -22,20 +22,10 @@ html {
 
 p {
   line-height: 2.0;
-  color: #555;
 }
 
 strong {
   font-weight: bold;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $warm-black;
 }
 
 h1 {
@@ -57,24 +47,3 @@ h6 {
   font-size: 16px;
 }
 
-main {
-  min-height: calc(100vh - $header-height - $footer-height);
-  box-sizing: border-box;
-}
-
-.content-wrapper {
-  max-width: 1400px;
-  margin: auto;
-  padding: 50px 0;
-  @media screen and (max-width: 1450px) {
-    padding: 50px 30px;
-  }
-  @media screen and (max-width: 1000px) {
-    h1 {
-      text-align: center;
-    }
-  }
-  @media screen and (max-width: 500px) {
-    padding: 40px 20px;
-  }
-}

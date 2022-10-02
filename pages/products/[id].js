@@ -1,14 +1,18 @@
 import Product from "/models/product";
+
+import styles from "./product.module.scss";
+
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from "./product.module.scss";
+
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper"
 
 export default function ProductPage({product}) {
   return (
     <>
       <Head><title>{product.name}</title></Head>
-      <main className="content-wrapper">
-        <div className={styles['product-page']}>
+      <div className={styles['product-page']}>
+        <MainContentWrapper>
           <section className={styles['product-info']}>
             <div className={styles['img-container']}>
               {<Image 
@@ -26,8 +30,8 @@ export default function ProductPage({product}) {
               <p>{product.description}</p>
             </div>
           </section>
-        </div>
-      </main>
+        </MainContentWrapper>
+      </div>
     </>
   );
 }

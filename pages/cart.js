@@ -1,8 +1,10 @@
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper";
+
 export default function CartPage({}) {
   return (
-    <main className="content-wrapper">
+    <MainContentWrapper>
       <h1>My Cart</h1>
-    </main>
+    </MainContentWrapper>
   );
 }
 

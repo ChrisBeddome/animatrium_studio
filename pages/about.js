@@ -1,10 +1,13 @@
 import styles from "./about.module.scss";
+
 import Image from "next/image";
+
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper"
 
 export default function AboutPage({}) {
   return (
-    <main className="content-wrapper">
-      <div className={styles["about-page"]}>
+    <div className={styles["about-page"]}>
+      <MainContentWrapper>
         <h1>About Us</h1>
         <section>
           <div className={styles.blurb}>
@@ -38,8 +41,8 @@ export default function AboutPage({}) {
             <Image src="/images/things.jpg" width="500" height="500" priority />
           </div>
         </section>
-      </div>
-    </main>
+      </MainContentWrapper>
+    </div>
   );
 }
 

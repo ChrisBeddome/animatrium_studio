@@ -1,16 +1,20 @@
 import styles from "./index.module.scss";
-import Hero from "/components/Hero/Hero";
+
 import Image from "next/image";
-import Link from "next/link";
+
 import logo from "/public/images/logo.png";
 
-export default function HomePage({}) {
+import Hero from "/components/Hero/Hero";
+import MainContentWrapper from "/components/common/MainContentWrapper/MainContentWrapper";
+import ButtonLink from "/components/common/ButtonLink/ButtonLink";
+
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <main className={styles["home-page"]}>
-        <section>
-          <div className="content-wrapper">
+      <div className={styles["home-page"]}>
+        <MainContentWrapper>
+          <section>
             <h1 className="mb-3">We are Animatrium Studio</h1>
             <p>
               Animatrium Studio was created in the midst of the Covid-19
@@ -19,13 +23,13 @@ export default function HomePage({}) {
               wish for all artists to have a platform where they can express and
               voice their creativity and imagination.
             </p>
-          </div>
-          <div className={styles["logo-separator"]}>
-            <Image src={logo} width={60} height={60} />
-          </div>
-        </section>
-        <section>
-          <div className="content-wrapper">
+            <div className={styles["logo-separator"]}>
+              <Image src={logo} width={60} height={60} />
+            </div>
+          </section>
+        </MainContentWrapper>
+        <MainContentWrapper dark>
+          <section>
             <div className={styles["image-with-header"]}>
               <div className={styles["text"]}>
                 <h3 className="mb-3">We make films!</h3>
@@ -36,20 +40,22 @@ export default function HomePage({}) {
                   based on his own novella. For Ascentrium or bespoke prints
                   available for purchase, visit the 'Shop All' section.
                 </p>
-                <div className={styles.link}>
-                  <Link href="https://www.youtube.com/c/AnimatriumStudio">
-                    <a>Check out our YouTube channel</a>
-                  </Link>
+                <div className={styles['external-link']}>
+                  <ButtonLink
+                    text="Check out our YouTube channel"
+                    href="https://www.youtube.com/c/AnimatriumStudio" 
+                    dark
+                  />
                 </div>
               </div>
               <div className={styles["image"]}>
                 <Image src="/images/RoushHelm.jpg" width={665} height={520} />
               </div>
             </div>
-          </div>
-        </section>
-        <section>
-          <div className="content-wrapper">
+          </section>
+        </MainContentWrapper>
+        <MainContentWrapper>
+          <section>
             <div className={styles["image-with-header"]}>
               <div className={styles["image"]}>
                 <Image
@@ -68,16 +74,17 @@ export default function HomePage({}) {
                   of her creative work can be found and purchased on her Etsy
                   page.
                 </p>
-                <div className={styles.link}>
-                  <Link href="https://www.etsy.com/shop/ClayWithTass">
-                    <a>Check out our Etsy shop</a>
-                  </Link>
-                </div>
+                <div className={styles['external-link']}>
+                  <ButtonLink
+                    text="Check out our Etsy shop"
+                    href="https://www.etsy.com/shop/ClayWithTass"
+                  />
+                </div> 
               </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </MainContentWrapper>
+      </div>
     </>
   );
 }
