@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.resolve(".env.local") });
 import throwMissingVarError from "../lib/throwMissingVarError.js";
 
-const PORT = parseInt(process.env.NEXT_PORT) || (() => {throwMissingVarError("NEXT_PORT")})();
-const HOSTNAME = process.env.NEXT_HOSTNAME   || (() => {throwMissingVarError("NEXT_HOSTNAME")})();
+const PORT = parseInt(process.env.NEXT_PORT) || (() => { throwMissingVarError("NEXT_PORT") })();
+const HOSTNAME = process.env.NEXT_HOSTNAME   || (() => { throwMissingVarError("NEXT_HOSTNAME") })();
 
 const serverProcess = exec(
   path.resolve(`node_modules/next/dist/bin/next dev -p ${PORT} -H ${HOSTNAME}`)
