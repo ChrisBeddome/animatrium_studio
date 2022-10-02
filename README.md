@@ -18,15 +18,15 @@ DB_HOSTNAME = 127.0.0.1
 DB_USER = animatrium_admin
 DB_PASSWORD = password
 ```
-## init database
+## Init database
 
 ```bash
   DB_ROOT_PASSWORD=[password] npm run db_init
 ```
 
-this will create the database table and user with the values specified in your env.local file
+This will create the database table and user with the values specified in your env.local file
 
-## seed database
+## Seed database
 
 ```bash
   npm run db_seed
