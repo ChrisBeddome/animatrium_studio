@@ -40,7 +40,7 @@ export async function getStaticProps({params}) {
   const product = await Product.findOne({ where: { id: params.id } });
   return {
     props: {
-      product: JSON.parse(JSON.stringify(product)),
+      product: product.toJSON(),
     },
   };
 }
