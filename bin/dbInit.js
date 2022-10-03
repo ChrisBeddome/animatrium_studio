@@ -2,7 +2,7 @@ import mariadb from "mariadb";
 import dotenv from "dotenv";
 import path from "path";
 dotenv.config({ path: path.resolve(".env.local") });
-import throwMissingVarError from "../lib/throwMissingVarError.js";
+import throwMissingVarError from "../lib/util/throwMissingVarError.js";
 
 init();
 
