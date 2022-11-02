@@ -1,0 +1,28 @@
+services: 
+  next:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80
+    networks:
+      animatrium:
+        aliases:
+          - next
+    environment:
+      - NEXT_HOSTNAME=0.0.0.0
+      - NEXT_PORT=80
+      - DB_NAME=animatrium_studio
+      - DB_HOSTNAME=db
+      - DB_USER=animatrium_admin
+      - DB_PASSWORD=password
+      - DB_ROOT_PASSWORD=root
+  db:
+    image: mariadb:10.9.3
+    networks:
+      animatrium:
+        aliases:
+          - db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+networks:
+  animatrium: {}
