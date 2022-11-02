@@ -19,7 +19,7 @@ async function setupDatabase() {
   const database = process.env.DB_NAME || (() => { throwMissingVarError("DB_NAME") })();
   const user = process.env.DB_USER || (() => { throwMissingVarError("DB_USER") })();
   const password = process.env.DB_PASSWORD || (() => { throwMissingVarError("DB_PASSWORD") })();
-  const rootPassword = process.argv[2] || (() => { throw new Error("mariaDB root password not supplied") })();
+  const rootPassword = process.env.DB_ROOT_PASSWORD || (() => { throwMissingVarError("DB_ROOT_PASSWORD") })();
 
   const connection = await createConnection(hostname, rootPassword) 
 
@@ -44,7 +44,7 @@ function createDatabase(dbName, connection) {
 }
 
 function createUser(username, password, dbName, connection) {
-  return connection.query(`GRANT ALL ON ${dbName}.* TO '${username}'@'localhost' IDENTIFIED BY '${password}' WITH GRANT OPTION;`);
+  return connection.query(`GRANT ALL ON ${dbName}.* TO '${username}'@'%' IDENTIFIED BY '${password}' WITH GRANT OPTION;`);
 }
 
 import product from "../models/product.js";

@@ -3,25 +3,23 @@
 Animatrium Studio is an eCommerce application built with nextJS
 
 ## Installation
-Install [MariaDB](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04).
-
-run `npm install` from root directory
 
 create `.env.local` file in the project root directory using the template:
 
 ```bash
-NEXT_HOSTNAME = localhost
-NEXT_PORT = 3000
+NEXT_HOSTNAME = 0.0.0.0
+NEXT_PORT = 80
 
 DB_NAME = animatrium_studio
-DB_HOSTNAME = 127.0.0.1
+DB_HOSTNAME = db
 DB_USER = animatrium_admin
 DB_PASSWORD = password
+DB_ROOT_PASSWORD = root
 ```
 ## Init database
 
 ```bash
-  DB_ROOT_PASSWORD=[password] npm run db_init
+  npm run db_init
 ```
 
 This will create the database table and user with the values specified in your env.local file
@@ -46,3 +44,7 @@ start production server
 npm run build
 npm run start
 ```
+
+
+docker run -d --env MYSQL_ROOT_PASSWORD=root --network animatrium --network-alias db mariadb:10.9.3
+docker run -d --network animatrium -p 3000:80 animatrium-node:latest
