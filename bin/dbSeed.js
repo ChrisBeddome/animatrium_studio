@@ -1,7 +1,5 @@
 import Product from "../models/product.js";
 
-seed();
-
 function seed() {
   const products = [
     {
@@ -33,4 +31,4 @@ function seed() {
   products.forEach(product => Product.create(product))
 }
 
-
+seed();

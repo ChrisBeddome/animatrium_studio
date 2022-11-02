@@ -8,7 +8,7 @@
     "dev": "node ./bin/dev.js 2>&1 | tee -a ./logs/dev.txt",
     "build": "next build",
     "start": "node ./bin/start.js 2>&1 | tee -a ./logs/prod.txt",
-    "db_init": "node ./bin/dbInit.js",
+    "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
   "repository": {
@@ -17,7 +17,6 @@
   },
   "author": "Chris Beddome",
   "dependencies": {
-    "dotenv": "^16.0.1",
     "mariadb": "^3.0.0",
     "next": "^12.1.6",
     "react": "^18.1.0",
