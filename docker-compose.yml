@@ -4,25 +4,24 @@ services:
       dockerfile: Dockerfile
     command: npm run dev
     ports:
-      - 3000:80
+      - 3000:${NEXT_PORT}
     networks:
       animatrium:
-        aliases:
-          - next
     env_file:
-      - .env.dev
+      - .env
   db:
     build:
       context: ./db
       dockerfile: Dockerfile
+    command: mariadbd --port ${DB_PORT}
     networks:
       animatrium:
         aliases:
-          - db
+          - ${DB_HOSTNAME}
     volumes:
       - data:/var/lib/mysql
     env_file:
-      - .env.dev
+      - .env
 networks:
   animatrium: {}
 volumes:
