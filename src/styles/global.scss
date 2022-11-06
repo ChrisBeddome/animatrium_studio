@@ -1,0 +1,49 @@
+@import "/src/styles/variables.scss";
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
+}
+
+@font-face {
+  font-family: "Arquitecta";
+  src: url("./fonts/Arquitecta.otf");
+}
+
+body,
+html {
+  font-family: "Arquitecta", sans-serif;
+  font-size: 18px;
+  color: $warm-black;
+  letter-spacing: 0.6px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+p {
+  line-height: 2.0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 52px;
+}
+h2 {
+  font-size: 44px;
+}
+h3 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 26px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+

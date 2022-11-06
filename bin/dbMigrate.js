@@ -1,4 +1,4 @@
-import product from "../models/product.js";
+import product from "/src/models/product.js";
 
 function createTables() {
   product.sync({alter: true});
