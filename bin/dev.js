@@ -1,5 +1,15 @@
-import { startServer, setOutput, runInitializers } from "/initializers/initialize.js";
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_PATH)
 
-const serverProcess = startServer("dev");
-setOutput(serverProcess);
-runInitializers();
+// import { startServer, setOutput, runInitializers } from "/bin/initialize.js";
+
+// const serverProcess = startServer("dev");
+// setOutput(serverProcess);
+// runInitializers();

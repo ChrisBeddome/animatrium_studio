@@ -35,7 +35,7 @@ function setOutput(serverProcess) {
 }
 
 function runInitializers() {
-	const initializerFilenames = fs.readdirSync(path.resolve('lib/initializers'));
+	const initializerFilenames = fs.readdirSync(path.resolve('initializers'));
 	initializerFilenames.forEach(filename => {
 		if (hasJsExtension(filename)) {
 			runInitializer(filename);
@@ -48,7 +48,7 @@ function hasJsExtension(filename) {
 }
 
 function runInitializer(filename) {
-	import(`./initializers/${filename}`).then(initializer => {
+	import(`../initializers/${filename}`).then(initializer => {
 		initializer.run && initializer.run();
 	})
 } 

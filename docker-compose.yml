@@ -2,6 +2,8 @@ services:
   next:
     build:
       dockerfile: Dockerfile
+      args: 
+        - NEXT_WORKDIR=${NEXT_WORKDIR}
     command: npm run dev
     ports:
       - 3000:${NEXT_PORT}
@@ -9,6 +11,8 @@ services:
       animatrium:
     env_file:
       - .env
+    volumes:
+      - ./src/:/${NEXT_WORKDIR}/src/
   db:
     build:
       context: ./db
