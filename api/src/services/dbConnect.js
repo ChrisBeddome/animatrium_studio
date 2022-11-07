@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize'
-import throwMissingVarError from "../lib/utils/throwMissingVarError.js"
+import throwMissingVarError from "../../lib/utils/throwMissingVarError.js"
 
 const hostname = process.env.DB_HOSTNAME || (() => { throwMissingVarError("DB_HOSTNAME") })()
 const port = process.env.DB_PORT || (() => { throwMissingVarError("DB_PORT") })()
