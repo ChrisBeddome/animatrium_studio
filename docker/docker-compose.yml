@@ -1,0 +1,48 @@
+services: 
+  api: 
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.api
+      args: 
+        - API_WORKDIR=${API_WORKDIR}
+    command: npm run dev
+    ports:
+      - 3001:${API_PORT}
+    networks:
+      animatrium:
+    env_file:
+      - .env
+    volumes:
+      - ../api/src/:/${API_WORKDIR}/src/
+  client:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.client
+      args: 
+        - CLIENT_WORKDIR=${CLIENT_WORKDIR}
+    command: npm run dev
+    ports:
+      - 3000:${CLIENT_PORT}
+    networks:
+      animatrium:
+    env_file:
+      - .env
+    volumes:
+      - ../client/src/:/${CLIENT_WORKDIR}/src/
+  db:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.db
+    command: mariadbd --port ${DB_PORT}
+    networks:
+      animatrium:
+        aliases:
+          - ${DB_HOSTNAME}
+    volumes:
+      - data:/var/lib/mysql
+    env_file:
+      - .env
+networks:
+  animatrium: {}
+volumes:
+  data: {}

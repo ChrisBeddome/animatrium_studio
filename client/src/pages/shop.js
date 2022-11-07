@@ -2,8 +2,6 @@ import styles from "./shop.module.scss";
 
 import Link from "next/link";
 
-import Product from "/src/models/product";
-
 import Card from "/src/components/products/Card/Card";
 import MainContentWrapper from "/src/components/common/MainContentWrapper/MainContentWrapper";
 
@@ -28,10 +26,13 @@ export default function ShopPage({ products }) {
 }
 
 export async function getStaticProps() {
-  const products = await Product.findAll();
+  const response = await fetch('http://api/products')
+  const body = await response.json()
+  const products = body.products
+
   return {
     props: {
-      products: products.map(product => product.toJSON())
+      products: products
     }
   };
 }

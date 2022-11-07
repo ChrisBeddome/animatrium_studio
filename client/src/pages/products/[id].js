@@ -1,5 +1,3 @@
-import Product from "/models/product";
-
 import styles from "./product.module.scss";
 
 import Head from 'next/head'
@@ -37,16 +35,20 @@ export default function ProductPage({product}) {
 }
 
 export async function getStaticProps({params}) {
-  const product = await Product.findOne({ where: { id: params.id } });
+  const response = await fetch(`http://api/products/${params.id}`)
+  const body = await response.json()
+  const product = body.product
   return {
     props: {
-      product: product.toJSON(),
+      product: product
     },
   };
 }
 
 export async function getStaticPaths() {
-  const products = await Product.findAll();
+  const response = await fetch('http://api/products')
+  const body = await response.json()
+  const products = body.products
   return {
     paths: products.map(p => {
       return {params: {id: p.id.toString()}}

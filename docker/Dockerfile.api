@@ -1,0 +1,19 @@
+FROM ubuntu:22.04 
+
+ARG API_WORKDIR
+
+RUN apt update
+RUN apt install -y curl
+
+RUN curl -sL https://deb.nodesource.com/setup_18.x -o /tmp/nodesource_setup.sh
+RUN bash /tmp/nodesource_setup.sh
+RUN apt install -y nodejs
+
+WORKDIR ${API_WORKDIR}
+
+COPY api/package.json .
+RUN npm install
+
+COPY api .
+COPY lib ./lib
+

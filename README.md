@@ -6,7 +6,7 @@ Animatrium Studio is an eCommerce application built with nextJS
 
 Install [Docker](https://www.docker.com/get-started/)
 
-create `.env` file in the project root directory using the template:
+create `.env` file in the docker directory using the template:
 
 ```bash
 NEXT_HOSTNAME = 0.0.0.0
