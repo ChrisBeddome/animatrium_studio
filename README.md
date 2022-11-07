@@ -13,7 +13,7 @@ NEXT_HOSTNAME = 0.0.0.0
 NEXT_PORT = 80
 
 DB_NAME = animatrium
-DB_HOSTNAME = db
+DB_HOST = db
 DB_PORT = 3306
 DB_USER = animatrium_admin
 DB_PASSWORD = password

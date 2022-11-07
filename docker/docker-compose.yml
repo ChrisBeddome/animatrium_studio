@@ -36,8 +36,6 @@ services:
     command: mariadbd --port ${DB_PORT}
     networks:
       animatrium:
-        aliases:
-          - ${DB_HOSTNAME}
     volumes:
       - data:/var/lib/mysql
     env_file:

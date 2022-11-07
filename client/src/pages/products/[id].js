@@ -35,7 +35,7 @@ export default function ProductPage({product}) {
 }
 
 export async function getStaticProps({params}) {
-  const response = await fetch(`http://api/products/${params.id}`)
+  const response = await fetch(`http://${process.env.API_HOST}/products/${params.id}`)
   const body = await response.json()
   const product = body.product
   return {
@@ -46,7 +46,7 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch('http://api/products')
+  const response = await fetch(`http://${process.env.API_HOST}/products`)
   const body = await response.json()
   const products = body.products
   return {

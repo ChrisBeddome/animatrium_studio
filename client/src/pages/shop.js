@@ -26,7 +26,7 @@ export default function ShopPage({ products }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch('http://api/products')
+  const response = await fetch(`http://${process.env.API_HOST}/products`)
   const body = await response.json()
   const products = body.products
 
