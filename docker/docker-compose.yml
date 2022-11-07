@@ -9,7 +9,7 @@ services:
     ports:
       - 3001:${API_PORT}
     networks:
-      animatrium:
+      primary:
     env_file:
       - .env
     volumes:
@@ -24,7 +24,7 @@ services:
     ports:
       - 3000:${CLIENT_PORT}
     networks:
-      animatrium:
+      primary:
     env_file:
       - .env
     volumes:
@@ -35,12 +35,12 @@ services:
       dockerfile: ./docker/Dockerfile.db
     command: mariadbd --port ${DB_PORT}
     networks:
-      animatrium:
+      primary:
     volumes:
       - data:/var/lib/mysql
     env_file:
       - .env
 networks:
-  animatrium: {}
+  primary: {}
 volumes:
   data: {}
