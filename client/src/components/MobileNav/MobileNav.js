@@ -1,17 +1,17 @@
-import styles from "./MobileNav.module.scss";
+import styles from "./MobileNav.module.scss"
 
-import { createPortal } from "react-dom";
-import { useEffect, useState } from "react";
+import { createPortal } from "react-dom"
+import { useEffect, useState } from "react"
 
-import MobileNavItem from "./MobileNavItem";
+import MobileNavItem from "./MobileNavItem"
 
 export default function MobileNav({pages, active, onCloseRequest}) {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
+    setMounted(true)
+    return () => setMounted(false)
+  }, [])
 
   return active && mounted 
     ? createPortal(
@@ -45,5 +45,5 @@ export default function MobileNav({pages, active, onCloseRequest}) {
       </div>,
         document.getElementById("nav-overlay")
       )
-    : null;
+    : null
 }

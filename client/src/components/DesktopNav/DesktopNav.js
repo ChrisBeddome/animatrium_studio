@@ -1,9 +1,9 @@
-import styles from "./DesktopNav.module.scss";
+import styles from "./DesktopNav.module.scss"
 
-import { useRouter } from "next/router";
-import Link from "next/link";
+import { useRouter } from "next/router"
+import Link from "next/link"
 
-import DesktopNavItem from "./DesktopNavItem";
+import DesktopNavItem from "./DesktopNavItem"
 
 export default function DesktopNav({ pages, mobileHideClass }) {
   return (
@@ -30,10 +30,10 @@ export default function DesktopNav({ pages, mobileHideClass }) {
         </ul>
       </nav>
     </>
-  );
+  )
 }
 
 function getLiStyles(path) {
-  const router = useRouter();
-  return router.pathname === path ? styles["current-page"] : null;
+  const router = useRouter()
+  return router.pathname === path ? styles["current-page"] : null
 }

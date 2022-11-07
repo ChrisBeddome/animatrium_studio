@@ -1,12 +1,12 @@
-import styles from "./index.module.scss";
+import styles from "./index.module.scss"
 
-import Image from "next/image";
+import Image from "next/image"
 
-import logo from "/public/images/logo.png";
+import logo from "/public/images/logo.png"
 
-import Hero from "/src/components/Hero/Hero";
-import MainContentWrapper from "/src/components/common/MainContentWrapper/MainContentWrapper";
-import ButtonLink from "/src/components/common/ButtonLink/ButtonLink";
+import Hero from "/src/components/Hero/Hero"
+import MainContentWrapper from "/src/components/common/MainContentWrapper/MainContentWrapper"
+import ButtonLink from "/src/components/common/ButtonLink/ButtonLink"
 
 export default function HomePage() {
   return (
@@ -86,5 +86,5 @@ export default function HomePage() {
         </MainContentWrapper>
       </div>
     </>
-  );
+  )
 }

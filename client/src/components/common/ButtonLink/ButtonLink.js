@@ -1,6 +1,6 @@
-import styles from "./ButtonLink.module.scss";
+import styles from "./ButtonLink.module.scss"
 
-import Link from "next/link";
+import Link from "next/link"
 
 export default function ButtonLink({text, href, dark = false}) {
   return (
@@ -9,5 +9,5 @@ export default function ButtonLink({text, href, dark = false}) {
         <a>Check out our YouTube channel</a>
       </Link>
     </div>
-  );
+  )
 }

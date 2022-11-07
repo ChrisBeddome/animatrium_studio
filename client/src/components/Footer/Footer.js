@@ -1,8 +1,8 @@
-import styles from "./Footer.module.scss";
+import styles from "./Footer.module.scss"
 
-import youtubeLogo from "/public/images/external/yt_icon_mono_dark.png";
-import instagramLogo from "/public/images/external/Instagram_Glyph_White.png";
-import facebookLogo from "/public/images/external/f_logo_white.png";
+import youtubeLogo from "/public/images/external/yt_icon_mono_dark.png"
+import instagramLogo from "/public/images/external/Instagram_Glyph_White.png"
+import facebookLogo from "/public/images/external/f_logo_white.png"
 
 import SocialMediaLink from "./SocialMediaLink"
 
@@ -25,7 +25,7 @@ const socialMediaSites = [
     imgHeight: 20,
     imgWidth: 20
   }
-];
+]
 
 const socialMediaLis = socialMediaSites.map(site => {
   return (
@@ -37,7 +37,7 @@ const socialMediaLis = socialMediaSites.map(site => {
         imgWidth={site.imgWidth}
       />
     </li> 
-  );
+  )
 })
 
 export default function Footer() {
@@ -49,7 +49,7 @@ export default function Footer() {
         </ul>
       </nav>
     </footer>
-  );
+  )
 }
 
 

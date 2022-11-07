@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 
 export default function MobileNavItem({text, path, onClick}) {
   return (
@@ -7,5 +7,5 @@ export default function MobileNavItem({text, path, onClick}) {
         <h3>{text}</h3>
       </a>
     </Link>
-  );
+  )
 }

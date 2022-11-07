@@ -1,4 +1,4 @@
-import styles from "./Hamburger.module.scss";
+import styles from "./Hamburger.module.scss"
 
 export default function Hamburger() {
   return (
@@ -7,5 +7,5 @@ export default function Hamburger() {
         <span className="material-symbols-outlined">menu</span>
       </button>
     </div>
-  );
+  )
 }

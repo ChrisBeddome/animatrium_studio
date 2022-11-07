@@ -1,9 +1,9 @@
-import styles from "./shop.module.scss";
+import styles from "./shop.module.scss"
 
-import Link from "next/link";
+import Link from "next/link"
 
-import Card from "/src/components/products/Card/Card";
-import MainContentWrapper from "/src/components/common/MainContentWrapper/MainContentWrapper";
+import Card from "/src/components/products/Card/Card"
+import MainContentWrapper from "/src/components/common/MainContentWrapper/MainContentWrapper"
 
 export default function ShopPage({ products }) {
   return (
@@ -22,7 +22,7 @@ export default function ShopPage({ products }) {
         </ul>
       </MainContentWrapper>
     </div>
-  );
+  )
 }
 
 export async function getStaticProps() {
@@ -34,7 +34,7 @@ export async function getStaticProps() {
     props: {
       products: products
     }
-  };
+  }
 }
 
-ShopPage.displayName = "Shop";
+ShopPage.displayName = "Shop"

@@ -3,7 +3,6 @@ import throwMissingVarError from "../lib/utils/throwMissingVarError.js"
 const app = express()
 const PORT = parseInt(process.env.API_PORT) || (() => { throwMissingVarError("API_PORT") })()
 
-
 app.get('/', (req, res) => {
   res.send('Hello idiots')
 })

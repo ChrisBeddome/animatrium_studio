@@ -1,6 +1,6 @@
-import styles from "./Hero.module.scss";
-import Image from "next/image";
-import Link from "next/link";
+import styles from "./Hero.module.scss"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function Hero() {
   return (
@@ -35,5 +35,5 @@ export default function Hero() {
         </Link>}
       </div>
     </div>
-  );
+  )
 }

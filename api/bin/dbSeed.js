@@ -26,9 +26,9 @@ function seed() {
       imageUrl: "/images/products/16543.jpg",
       description: "Are you looking for some symbolic earrings!? Check out these chakras earrings made magically using the hand of Fatima and V-shaped gold plated hooks."
     },
-  ];
+  ]
 
   products.forEach(product => Product.create(product))
 }
 
-seed();
+seed()

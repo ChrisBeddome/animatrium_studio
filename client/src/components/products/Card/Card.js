@@ -1,9 +1,9 @@
-import styles from "./Card.module.scss";
-import Image from "next/image";
+import styles from "./Card.module.scss"
+import Image from "next/image"
 
 export default function ProductCard({ product }) {
   function formatPrice(price) {
-    return `$${price && price.toFixed(2)}`;
+    return `$${price && price.toFixed(2)}`
   }
   return (
     <div className={styles.card}>
@@ -26,5 +26,5 @@ export default function ProductCard({ product }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

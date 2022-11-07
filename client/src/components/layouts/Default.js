@@ -1,6 +1,6 @@
-import styles from "./Default.module.scss";
-import Header from "/src/components/Header/Header";
-import Footer from "/src/components/Footer/Footer";
+import styles from "./Default.module.scss"
+import Header from "/src/components/Header/Header"
+import Footer from "/src/components/Footer/Footer"
 
 const pages = [
   {
@@ -23,7 +23,7 @@ const pages = [
     path: "/contact",
     text: "Contact",
   },
-];
+]
 
 export default function Layout({ children }) {
   return (
@@ -32,5 +32,5 @@ export default function Layout({ children }) {
         <main className={styles["default-layout"]}>{children}</main>
       <Footer></Footer>
     </>
-  );
+  )
 }

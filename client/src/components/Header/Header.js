@@ -1,24 +1,24 @@
-import styles from "./Header.module.scss";
+import styles from "./Header.module.scss"
 
-import logo from "/public/images/logo.png";
+import logo from "/public/images/logo.png"
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
 
-import Hamburger from "./Hamburger";
-import MobileNav from "/src/components/MobileNav/MobileNav";
+import Hamburger from "./Hamburger"
+import MobileNav from "/src/components/MobileNav/MobileNav"
 import DesktopNav from "/src/components/DesktopNav/DesktopNav"
 
 export default function Header({ pages }) {
-  const [mobileNavActive, setMobileNavActive] = useState(false);
+  const [mobileNavActive, setMobileNavActive] = useState(false)
 
   const onHamburgerClick = () => {
-    setMobileNavActive(true);
+    setMobileNavActive(true)
   }
   
   const closeMobileNav = () => {
-    setMobileNavActive(false);
+    setMobileNavActive(false)
   }
 
   return (
@@ -47,5 +47,5 @@ export default function Header({ pages }) {
       <DesktopNav pages={pages} mobileHideClass={styles['hide-mobile']} />
 
     </header>
-  );
+  )
 }

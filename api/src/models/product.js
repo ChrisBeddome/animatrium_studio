@@ -1,5 +1,5 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../services/dbConnect.js";
+import { DataTypes } from "sequelize"
+import sequelize from "../services/dbConnect.js"
 
 const Product = sequelize.define(
   "product",
@@ -30,6 +30,6 @@ const Product = sequelize.define(
   {
     underscored: true,
   }
-);
+)
 
-export default Product;
+export default Product

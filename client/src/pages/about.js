@@ -1,6 +1,6 @@
-import styles from "./about.module.scss";
+import styles from "./about.module.scss"
 
-import Image from "next/image";
+import Image from "next/image"
 
 import MainContentWrapper from "/src/components/common/MainContentWrapper/MainContentWrapper"
 
@@ -43,7 +43,7 @@ export default function AboutPage({}) {
         </section>
       </MainContentWrapper>
     </div>
-  );
+  )
 }
 
 AboutPage.displayName = "About"

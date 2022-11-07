@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 
 export default function DesktopNavItem({ text, path }) {
   return (
@@ -7,5 +7,5 @@ export default function DesktopNavItem({ text, path }) {
         <span>{text}</span>
       </a>
     </Link>
-  );
+  )
 }
