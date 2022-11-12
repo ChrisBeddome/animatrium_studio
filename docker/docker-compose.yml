@@ -1,6 +1,8 @@
 name: animatrium
 services: 
   api: 
+    depends_on: 
+      - db
     build:
       context: ../
       dockerfile: ./docker/Dockerfile.api
@@ -15,7 +17,10 @@ services:
       - .env
     volumes:
       - ../api/src/:/${API_WORKDIR}/src/
+    restart: always
   client:
+    depends_on: 
+      - api
     build:
       context: ../
       dockerfile: ./docker/Dockerfile.client
@@ -30,6 +35,7 @@ services:
       - .env
     volumes:
       - ../client/src/:/${CLIENT_WORKDIR}/src/
+    restart: always
   db:
     build:
       context: ../
@@ -37,10 +43,11 @@ services:
     command: mariadbd --port ${DB_PORT}
     networks:
       primary:
-    volumes:
-      - data:/var/lib/mysql
     env_file:
       - .env
+    volumes:
+      - data:/var/lib/mysql
+    restart: always
 networks:
   primary: {}
 volumes:
