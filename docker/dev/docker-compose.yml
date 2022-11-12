@@ -4,8 +4,8 @@ services:
     depends_on: 
       - db
     build:
-      context: ../
-      dockerfile: ./docker/Dockerfile.api
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.api
       args: 
         - API_WORKDIR=${API_WORKDIR}
     command: npm run dev
@@ -16,14 +16,14 @@ services:
     env_file:
       - .env
     volumes:
-      - ../api/src/:/${API_WORKDIR}/src/
-    restart: always
+      - ../../api/src/:/${API_WORKDIR}/src/
+    restart: "no"
   client:
     depends_on: 
       - api
     build:
-      context: ../
-      dockerfile: ./docker/Dockerfile.client
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.client
       args: 
         - CLIENT_WORKDIR=${CLIENT_WORKDIR}
     command: npm run dev
@@ -34,12 +34,12 @@ services:
     env_file:
       - .env
     volumes:
-      - ../client/src/:/${CLIENT_WORKDIR}/src/
-    restart: always
+      - ../../client/src/:/${CLIENT_WORKDIR}/src/
+    restart: "no"
   db:
     build:
-      context: ../
-      dockerfile: ./docker/Dockerfile.db
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.db
     command: mariadbd --port ${DB_PORT}
     networks:
       primary:
@@ -47,7 +47,7 @@ services:
       - .env
     volumes:
       - data:/var/lib/mysql
-    restart: always
+    restart: "no"
 networks:
   primary: {}
 volumes:
