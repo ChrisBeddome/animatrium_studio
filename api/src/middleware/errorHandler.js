@@ -10,10 +10,9 @@ export const logError = (error, _req, _res, next) => {
   next(error);
 };
 
-export const sendError = (error, _req, _res, _next) => {
+export const sendErrorResponse = (error, _req, res, _next) => {
   res.status(error.status || 500);
   res.json({
-    success: false,
     error: error.clientMessage || "Internal server error"
   });
 };

@@ -7,11 +7,11 @@ const app = express()
 const port = parseInt(process.env.API_PORT) || (() => { throwMissingVarError("API_PORT") })()
 
 app.use("/", entryPoint);
-app.use(errorHandler.generateNotFoundError); 
-app.use(errorHandler.logError);
-app.use(errorHandler.sendError);
+app.use(generateNotFoundError); 
+app.use(logError);
+app.use(sendErrorResponse);
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log(`Server started. Listening for requests on port ${port}...`)
 })
 
