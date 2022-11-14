@@ -1,3 +1,4 @@
 from nginx:1.23.2
 
 COPY ./reverse_proxy/nginx.conf /etc/nginx/nginx.conf
+COPY ./reverse_proxy/default.conf /etc/nginx/templates/default.conf.template
