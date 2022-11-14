@@ -1,25 +1,17 @@
 import express from "express"
 import throwMissingVarError from "../lib/utils/throwMissingVarError.js"
+import { generateNotFoundError, logError, sendErrorResponse } from "./middleware/errorHandler.js"
+import entryPoint from "./routes/entryPoint.js"
+
 const app = express()
-const PORT = parseInt(process.env.API_PORT) || (() => { throwMissingVarError("API_PORT") })()
+const port = parseInt(process.env.API_PORT) || (() => { throwMissingVarError("API_PORT") })()
 
-app.get('/', (req, res) => {
-  res.send('Hello idiots')
-})
-
-import Product from "./models/product.js"
-app.get('/products', async (req, res) => {
-  const products = await Product.findAll()
-  res.send({products: products})
-})
-
-app.get('/products/:id', async (req , res) => {
-  const product = await Product.findOne({ where: { id: req.params.id } })
-  res.send({product: product})
-})
+app.use("/", entryPoint);
+app.use(errorHandler.generateNotFoundError); 
+app.use(errorHandler.logError);
+app.use(errorHandler.sendError);
 
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`)
+  console.log(`Server started. Listening for requests on port ${port}...`)
 })
-
 
