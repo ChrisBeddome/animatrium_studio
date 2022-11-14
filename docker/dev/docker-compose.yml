@@ -1,5 +1,7 @@
 name: animatrium
+
 services: 
+
   api: 
     depends_on: 
       - db
@@ -9,15 +11,16 @@ services:
       args: 
         - API_WORKDIR=${API_WORKDIR}
     command: npm run dev
-    ports:
-      - 3001:${API_PORT}
     networks:
       primary:
+        aliases:
+          - ${API_HOST}
     env_file:
       - .env
     volumes:
       - ../../api/src/:/${API_WORKDIR}/src/
     restart: "no"
+
   client:
     depends_on: 
       - api
@@ -27,15 +30,16 @@ services:
       args: 
         - CLIENT_WORKDIR=${CLIENT_WORKDIR}
     command: npm run dev
-    ports:
-      - 3000:${CLIENT_PORT}
     networks:
       primary:
+        aliases:
+          - ${CLIENT_HOST}
     env_file:
       - .env
     volumes:
       - ../../client/src/:/${CLIENT_WORKDIR}/src/
     restart: "no"
+
   db:
     build:
       context: ../../
@@ -43,12 +47,34 @@ services:
     command: mariadbd --port ${DB_PORT}
     networks:
       primary:
+        aliases:
+          - ${DB_HOST}
     env_file:
       - .env
     volumes:
       - data:/var/lib/mysql
     restart: "no"
+
+  reverse_proxy:
+    depends_on: 
+      - api
+      - db
+      - client
+    build:
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.reverse_proxy
+    networks:
+      primary:
+        aliases:
+          - ${REVERSE_PROXY_HOST}
+    ports:
+      - 80:${REVERSE_PROXY_PORT}
+    env_file:
+      - .env
+    restart: "no"
+
 networks:
   primary: {}
+
 volumes:
   data: {}
