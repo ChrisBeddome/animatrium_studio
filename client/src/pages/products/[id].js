@@ -36,8 +36,7 @@ export default function ProductPage({product}) {
 
 export async function getStaticProps({params}) {
   const response = await fetch(`http://${process.env.API_HOST}/products/${params.id}`)
-  const body = await response.json()
-  const product = body.product
+  const product= await response.json()
   return {
     props: {
       product: product
@@ -47,8 +46,7 @@ export async function getStaticProps({params}) {
 
 export async function getStaticPaths() {
   const response = await fetch(`http://${process.env.API_HOST}/products`)
-  const body = await response.json()
-  const products = body.products
+  const products = await response.json()
   return {
     paths: products.map(p => {
       return {params: {id: p.id.toString()}}
