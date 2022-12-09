@@ -6,23 +6,32 @@ Animatrium Studio is an eCommerce application built with nextJS
 
 Install [Docker](https://www.docker.com/get-started/)
 
-create `.env` file in the docker directory using the template:
+create `.env` file in the `docker/dev` directory using the template:
 
 ```bash
-NEXT_HOSTNAME = 0.0.0.0
-NEXT_PORT = 80
+API_HOST = api
+API_PORT = 80
+API_WORKDIR = /app
 
-DB_NAME = animatrium
+CLIENT_HOST = client
+CLIENT_PORT = 80
+CLIENT_WORKDIR = /app
+
 DB_HOST = db
 DB_PORT = 3306
+DB_NAME = animatrium
 DB_USER = animatrium_admin
 DB_PASSWORD = password
-
 MARIADB_ROOT_PASSWORD = root
+
+REVERSE_PROXY_HOST = reverse-proxy
+REVERSE_PROXY_PORT = 80
+
+NODE_ENV = development
 ```
 ## Usage
 
-start the development server
+Start the development server
 
 ```bash
 docker-compose up
@@ -30,9 +39,14 @@ docker-compose up
 
 ## Migrations
 
-To run schema migrations, issue the `db_migrate` command to the container running the nextJS application
+To run schema migrations, issue the `db_migrate` command to the container running the API application
 
 ```bash
-docker-compose exec next npm run db_migrate
+docker-compose exec api npm run db_migrate
 ```
 
+## Seed development/test data (optional) 
+
+```bash
+docker-compose exec api npm run db_seed
+```

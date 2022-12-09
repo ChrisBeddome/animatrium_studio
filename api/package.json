@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "node ./src/app.js 2>&1 | tee -a ./logs/dev.txt",
-    "start": "",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
