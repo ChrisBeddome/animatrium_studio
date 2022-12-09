@@ -1,6 +1,6 @@
 # Animatrium Studio
 
-Animatrium Studio is an eCommerce application built with nextJS
+Animatrium Studio is an eCommerce application built with Next.js and Express.js
 
 ## Installation
 
