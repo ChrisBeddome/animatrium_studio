@@ -1,12 +1,12 @@
 {
   "name": "animatrium_studio_client",
   "version": "1.0.0",
-  "description": "eCommerce application client built with NextJS",
+  "description": "eCommerce application client built with Next.js",
   "type": "module",
   "scripts": {
-    "dev": "node ./bin/dev.js 2>&1 | tee -a ./logs/dev.txt",
+    "dev": "next dev -p $npm_config_port 2>&1 | tee -a ./logs/dev.txt",
     "build": "next build",
-    "start": "node ./bin/start.js 2>&1 | tee -a ./logs/prod.txt"
+    "start": "next start -p $npm_config_port 2>&1 | tee -a ./logs/prod.txt"
   },
   "author": "Chris Beddome",
   "license": "UNLICENSED",

@@ -4,7 +4,7 @@ Animatrium Studio is an eCommerce application built with Next.js and Express.js
 
 ## Installation
 
-Install [Docker](https://www.docker.com/get-started/)
+Yer gonna need [Docker](https://www.docker.com/get-started/)
 
 create `.env` file in the `docker/dev` directory using the template:
 
@@ -34,7 +34,7 @@ NODE_ENV = development
 Start the development server
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ## Migrations
@@ -42,11 +42,11 @@ docker-compose up
 To run schema migrations, issue the `db_migrate` command to the container running the API application
 
 ```bash
-docker-compose exec api npm run db_migrate
+docker compose exec api npm run db_migrate
 ```
 
 ## Seed development/test data (optional) 
 
 ```bash
-docker-compose exec api npm run db_seed
+docker compose exec api npm run db_seed
 ```
