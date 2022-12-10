@@ -17,3 +17,4 @@ RUN npm install
 COPY client .
 COPY lib/ ./lib
 
+RUN mkdir -p logs
