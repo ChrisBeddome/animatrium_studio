@@ -12,10 +12,13 @@ create `.env` file in the `docker/dev` directory using the template:
 API_HOST = api
 API_PORT = 80
 API_WORKDIR = /app
+API_MAX_WORKER_COUNT = 4
+NODE_ENV = development
 
 CLIENT_HOST = client
 CLIENT_PORT = 80
 CLIENT_WORKDIR = /app
+NEXT_TELEMETRY_DISABLED = 1
 
 DB_HOST = db
 DB_PORT = 3306
@@ -26,8 +29,6 @@ MARIADB_ROOT_PASSWORD = root
 
 REVERSE_PROXY_HOST = reverse-proxy
 REVERSE_PROXY_PORT = 80
-
-NODE_ENV = development
 ```
 ## Usage
 

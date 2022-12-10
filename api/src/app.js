@@ -5,7 +5,6 @@ import throwMissingVarError from "../lib/utils/throwMissingVarError.js"
 import entryPoint from "./routes/entryPoint.js"
 
 const port = parseInt(process.env.API_PORT) || (() => { throwMissingVarError("API_PORT") })()
-
 if (cluster.isMaster) {
   forkWorkers(getWorkerCount())
 } else {
@@ -43,3 +42,11 @@ function startExpress(port) {
     console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${port}...`)
   })
 }
+
+process.on('uncaughtException', (err, origin) => {
+  console.log("uncaught exception:")
+  console.log(err)
+  console.log(origin)
+  console.log("exiting...")
+  process.exit(1)
+});
