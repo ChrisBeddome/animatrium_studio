@@ -50,3 +50,10 @@ process.on('uncaughtException', (err, origin) => {
   console.log("exiting...")
   process.exit(1)
 });
+
+//THIS NEEDS TO ACCOUNT FOR EXPRESS AND ALSO WHAT TO DO ON MASTER CLUSTER
+process.on('SIGTERM', function () {
+  server.close(function () {
+    process.exit(0);
+  });
+});
