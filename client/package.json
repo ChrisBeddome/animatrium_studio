@@ -1,6 +1,7 @@
 {
-  "name": "animatrium_studio_client",
+  "name": "animatrium-studio-client",
   "version": "1.0.0",
+  "private": true,
   "description": "eCommerce application client built with Next.js",
   "type": "module",
   "scripts": {
@@ -10,6 +11,10 @@
   },
   "author": "Chris Beddome",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisBeddome/animatrium_studio"
+  },
   "dependencies": {
     "lib": "file:../lib",
     "next": "^12.1.6",

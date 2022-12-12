@@ -10,7 +10,7 @@ services:
       dockerfile: ./docker/dev/Dockerfile.api
       args: 
         - API_WORKDIR=${API_WORKDIR}
-    command: npm run dev
+    command: sleep 3600
     networks:
       primary:
         aliases:

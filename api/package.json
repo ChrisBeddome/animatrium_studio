@@ -1,15 +1,24 @@
 {
   "name": "animatrium-studio-api",
   "version": "1.0.0",
-  "description": "eCommerce application API built with NodeJS",
+  "private": true,
+  "description": "eCommerce application API built with ExpressJS",
   "type": "module",
+  "imports": {
+    "#root/*": "./*", 
+    "#src/*": "./src/*"
+  },
   "scripts": {
-    "dev": "node ./src/app.js 2>&1 | tee -a ./logs/dev.txt",
+    "dev": "node ./src/server.js 2>&1 | tee -a ./logs/dev.txt",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
   "author": "Chris Beddome",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisBeddome/animatrium_studio"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "mariadb": "^3.0.0",
