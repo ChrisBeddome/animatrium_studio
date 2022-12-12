@@ -49,4 +49,5 @@ function setUncaughtExceptionHandler() {
     process.exit(1)
   })
 }
+
 export default initWorker
