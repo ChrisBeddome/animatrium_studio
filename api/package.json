@@ -9,7 +9,7 @@
     "#src/*": "./src/*"
   },
   "scripts": {
-    "dev": "nodemon ./src/server/start.js",
+    "dev": "nodemon ./src/server/start.js --legacy-watch",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },

@@ -7,12 +7,31 @@ import initWorker from '#src/server/initWorker.js'
 if (cluster.isPrimary) {
   initPrimary()
 } else {
-  initWorker(startExpressServer)
+  initWorker(startServer, makeShutdownServerFn)
 }
 
-function startExpressServer() {
+function startServer() {
   const port = parseInt(requireEnvVar('API_PORT'))
-  return app.listen(port, () => {
-    console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${port}...`)
+  return new Promise ((resolve, reject) => {
+    try {
+      const server = app.listen(port, () => {
+        resolve(server)
+      })
+    } catch {
+      reject()
+    }
   })
+}
+
+function makeShutdownServerFn(server) {
+  return function(timeout=10000) {
+    return new Promise((resolve, reject) => {
+      server.close(() => {
+        resolve()
+      })
+      setTimeout(() => {
+        reject()
+      }, timeout)
+    })
+  }
 }

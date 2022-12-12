@@ -1,14 +1,14 @@
-import shutdownServer from '#src/server/shutdown.js'
-
-function initWorker(serverFn) {
+async function initWorker(start, makeStop) {
   console.log(`Worker ${process.pid} started`)
-  const server = serverFn()
-  setWorkerTerminateProcedures(server)
+  const server = await start()
+  console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${server.address().port}...`)
+  const shutdownFn = makeStop(server)
+  setWorkerTerminateProcedures(shutdownFn)
 }
 
-function setWorkerTerminateProcedures(server) {
+function setWorkerTerminateProcedures(shutdownFn) {
   ignoreSignals()
-  setTerminateHandler(server)
+  setTerminateHandler(shutdownFn)
   setUncaughtExceptionHandler()
 }
 
@@ -19,7 +19,7 @@ function ignoreSignals() {
   })
 }
 
-function setTerminateHandler(server) {
+function setTerminateHandler(shutdownFn) {
   let shutdownInitiated = false;
   ['SIGTERM', 'SIGPIPE'].forEach(signal => {
     process.once(signal, async () => {
@@ -27,7 +27,7 @@ function setTerminateHandler(server) {
         shutdownInitiated = true
         console.log(`Worker ${process.pid} received ${signal}. killing server`)
         try {
-          await shutdownServer(server)
+          await shutdownFn()
           console.log(`Server closed. Worker ${process.pid} exiting...`)
           process.exit(0)
         } catch {
