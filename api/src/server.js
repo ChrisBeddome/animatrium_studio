@@ -1,7 +1,7 @@
 import cluster from 'node:cluster'
 import { cpus } from 'node:os'
-import throwMissingVarError from "#root/lib/utils/throwMissingVarError.js"
-import app from "#src/app.js"
+import requireEnvVar from '#root/lib/utils/requireEnvVar.js'
+import app from '#src/app.js'
 
 if (cluster.isMaster) {
   initMaster()
@@ -67,7 +67,7 @@ function handleWorkerExit(code) {
 
 function initWorker() {
   console.log(`Worker ${process.pid} started`)
-  const port = parseInt(process.env.API_PORT) || (() => { throwMissingVarError("API_PORT") })()
+  const port = parseInt(requireEnvVar('API_PORT'))
   const server = startExpressServer(port)
   setWorkerTerminateProcedures(server)
 }
