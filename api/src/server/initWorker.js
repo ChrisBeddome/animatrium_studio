@@ -1,27 +1,28 @@
-import requireEnvVar from '#root/lib/utils/requireEnvVar.js'
-import app from '#src/app.js'
+import shutdownServer from '#src/server/shutdown.js'
 
-export default function initWorker() {
+function initWorker(serverFn) {
   console.log(`Worker ${process.pid} started`)
-  const port = parseInt(requireEnvVar('API_PORT'))
-  const server = startExpressServer(app, port)
+  const server = serverFn()
   setWorkerTerminateProcedures(server)
 }
 
-function startExpressServer(app, port) {
-  return app.listen(port, () => {
-    console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${port}...`)
+function setWorkerTerminateProcedures(server) {
+  ignoreSignals()
+  setTerminateHandler(server)
+  setUncaughtExceptionHandler()
+}
+
+function ignoreSignals() {
+  const signalsHandledByPrimaryProcess = ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'] 
+  signalsHandledByPrimaryProcess.forEach(signal => {
+    process.on(signal, () => {})
   })
 }
 
-function setWorkerTerminateProcedures(server) {
-  ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'].forEach(signal => {
-    process.on(signal, () => {})
-  })
-
+function setTerminateHandler(server) {
   let shutdownInitiated = false;
   ['SIGTERM', 'SIGPIPE'].forEach(signal => {
-    process.once(async signal, () => {
+    process.once(signal, async () => {
       if (!shutdownInitiated) {
         shutdownInitiated = true
         console.log(`Worker ${process.pid} received ${signal}. killing server`)
@@ -37,7 +38,9 @@ function setWorkerTerminateProcedures(server) {
       }
     })
   })
+}
 
+function setUncaughtExceptionHandler() {
   process.once('uncaughtException', (err, origin) => {
     console.log(`Worker ${process.pid} - uncaught exception:`)
     console.log(err)
@@ -46,14 +49,4 @@ function setWorkerTerminateProcedures(server) {
     process.exit(1)
   })
 }
-
-function shutdownServer(server, timeout) {
-  return new Promise((resolve, reject) => {
-    server.close(() => {
-      resolve()
-    })
-    setTimeout(() => {
-      reject()
-    }, timeout)
-  })
-}
+export default initWorker

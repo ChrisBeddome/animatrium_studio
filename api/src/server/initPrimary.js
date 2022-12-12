@@ -1,7 +1,7 @@
 import cluster from 'node:cluster'
 import { cpus } from 'node:os'
 
-export default function initPrimary() {
+function initPrimary() {
   console.log(`Primary ${process.pid} is running`)
   const workerCount = getWorkerCount()
   console.log(`Forking ${workerCount} worker(s)`)
@@ -32,7 +32,7 @@ function setGracefulShutdown() {
   ['SIGTERM', 'SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'].forEach(signal => {
     process.once(signal, () => {
       if (!shutdownInitiated) {
-        shutdownInitiated = true;
+        shutdownInitiated = true
         console.log(`Primary received ${signal}. killing children`)
         killWorkers()
         console.log(`Primary exiting...`)
@@ -74,3 +74,4 @@ function handleWorkerExit(code) {
   }
 }
 
+export default initPrimary
