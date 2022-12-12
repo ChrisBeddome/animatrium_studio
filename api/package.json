@@ -9,7 +9,7 @@
     "#src/*": "./src/*"
   },
   "scripts": {
-    "dev": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
@@ -23,5 +23,8 @@
     "express": "^4.18.2",
     "mariadb": "^3.0.0",
     "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

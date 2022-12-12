@@ -3,18 +3,18 @@ import { cpus } from 'node:os'
 import requireEnvVar from '#root/lib/utils/requireEnvVar.js'
 import app from '#src/app.js'
 
-if (cluster.isMaster) {
-  initMaster()
+if (cluster.isPrimary) {
+  initPrimary()
 } else {
   initWorker()
 }
 
-function initMaster() {
-  console.log(`Master ${process.pid} is running`)
+function initPrimary() {
+  console.log(`Primary ${process.pid} is running`)
   const workerCount = getWorkerCount()
   console.log(`Forking ${workerCount} worker(s)`)
   forkWorkers(workerCount)
-  setMasterTerminateProcedures()
+  setPrimaryTerminateProcedures()
 }
 
 function getWorkerCount() {
@@ -29,26 +29,31 @@ function forkWorkers(workerCount) {
   }
 }
 
-function setMasterTerminateProcedures() {
-  ['SIGTERM', 'SIGINT'].forEach(signal => {
-    process.on(signal, () => {
-      console.log(`received ${signal}. killing children`)
-      killWorkers()
-    });
+function setPrimaryTerminateProcedures() {
+  let shutdownInitiated = false;
+  ['SIGTERM', 'SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'].forEach(signal => {
+    process.once(signal, () => {
+      if (!shutdownInitiated) {
+        shutdownInitiated = true;
+        console.log(`Primary received ${signal}. killing children`)
+        killWorkers()
+        console.log(`Primary exiting...`)
+        process.exitCode = 0
+      }
+    })
   })
   cluster.on('exit', (worker, code, signal) => {
     console.log(`Worker ${worker.process.pid} exited with code ${code}`)
     handleWorkerExit(code)
   })
-  process.on('uncaughtException', (err, origin) => {
-    console.log(`Master - uncaught exception:`)
+  process.once('uncaughtException', (err, origin) => {
     console.log(err)
     console.log(origin)
     console.log("killing children...")
     killWorkers()
-    console.log(`Master exiting...`)
-    process.exit(1)
-  });
+    console.log(`Primary exiting...`)
+    process.exitCode = 1
+  })
 }
 
 function killWorkers() {
@@ -79,16 +84,22 @@ function startExpressServer(port) {
 }
 
 function setWorkerTerminateProcedures(server) {
-  ['SIGTERM', 'SIGINT'].forEach(signal => {
-    process.on(signal, () => {
-      console.log(`Worker ${process.pid} received ${signal}. killing server`)
-      server.close(() => {
-        console.log(`Server closed. Worker ${process.pid} exiting...`)
-        process.exit(0)
-      })
+  ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'].forEach(signal => {
+    process.on(signal, () => {})
+  })
+
+  let shutdownInitiated = false;
+  ['SIGTERM', 'SIGPIPE'].forEach(signal => {
+    process.once(signal, () => {
+      if (!shutdownInitiated) {
+        shutdownInitiated = true
+        console.log(`Worker ${process.pid} received ${signal}. killing server`)
+        shutdownServer(server)
+      }
     })
   })
-  process.on('uncaughtException', (err, origin) => {
+
+  process.once('uncaughtException', (err, origin) => {
     console.log(`Worker ${process.pid} - uncaught exception:`)
     console.log(err)
     console.log(origin)
@@ -97,3 +108,13 @@ function setWorkerTerminateProcedures(server) {
   })
 }
 
+function shutdownServer(server) {
+  server.close(() => {
+    console.log(`Server closed. Worker ${process.pid} exiting...`)
+    process.exit(0)
+  })
+  setTimeout(() => {
+    console.error(`Could not close connections in time, forcefully shutting down worker ${process.pid}`)
+    process.exit(1)
+  }, 10000)
+}
