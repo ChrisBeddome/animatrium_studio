@@ -16,5 +16,3 @@ RUN npm install
 
 COPY api .
 COPY lib ./lib
-
-RUN mkdir -p logs

@@ -9,7 +9,7 @@
     "#src/*": "./src/*"
   },
   "scripts": {
-    "dev": "node ./src/server.js 2>&1 | tee -a ./logs/dev.txt",
+    "dev": "node ./src/server.js",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },

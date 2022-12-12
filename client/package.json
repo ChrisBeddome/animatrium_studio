@@ -5,7 +5,7 @@
   "description": "eCommerce application client built with Next.js",
   "type": "module",
   "scripts": {
-    "dev": "next dev -p $npm_config_port 2>&1 | tee -a ./logs/dev.txt",
+    "dev": "next dev -p $npm_config_port",
     "build": "next build",
     "start": "next start -p $npm_config_port 2>&1 | tee -a ./logs/prod.txt"
   },
