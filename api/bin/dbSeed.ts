@@ -1,4 +1,4 @@
-import Product from "#src/models/product.js"
+import Product from "src/models/product"
 
 function seed() {
   const products = [

@@ -10,11 +10,11 @@ if (cluster.isPrimary) {
   initWorker(startServer, makeShutdownServerFn)
 }
 
-function startServer() {
+function startServer(): Promise<node.Server> {
   const port = parseInt(requireEnvVar('API_PORT'))
-  return new Promise ((resolve, reject) => {
+  return new Promise<node.Server> ((resolve, reject) => {
     try {
-      const server = app.listen(port, () => {
+      const server: node.Server = app.listen(port, () => {
         resolve(server)
       })
     } catch {
@@ -23,9 +23,9 @@ function startServer() {
   })
 }
 
-function makeShutdownServerFn(server) {
-  return function(timeout=10000) {
-    return new Promise((resolve, reject) => {
+function makeShutdownServerFn(server: node.http.server): Function {
+  return function(timeout: number = 10000):Promise<void> {
+    return new Promise<void>((resolve, reject) => {
       server.close(() => {
         resolve()
       })

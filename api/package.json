@@ -4,12 +4,8 @@
   "private": true,
   "description": "eCommerce application API built with ExpressJS",
   "type": "module",
-  "imports": {
-    "#root/*": "./*", 
-    "#src/*": "./src/*"
-  },
   "scripts": {
-    "dev": "nodemon ./src/server/start.js --legacy-watch",
+    "dev": "sleep 3600",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
@@ -26,6 +22,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "@types/express": "4.17.15",
+    "@types/node": "18.11.17",
+    "@types/sequelize": "4.28.14"
   }
 }
