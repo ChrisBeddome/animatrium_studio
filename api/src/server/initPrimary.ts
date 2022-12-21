@@ -11,11 +11,11 @@ function initPrimary() {
 
 function getWorkerCount() {
   const cpuCount = cpus().length
-  const maxWorkerCount = parseInt(process.env.API_MAX_WORKER_COUNT) || cpuCount
+  const maxWorkerCount: number = Number(process.env.API_MAX_WORKER_COUNT || cpuCount)
   return Math.min(maxWorkerCount, cpuCount)
 }
 
-function forkWorkers(workerCount) {
+function forkWorkers(workerCount: number) {
   for (let i = 0; i < workerCount; i++) {
     cluster.fork()
   }
@@ -62,12 +62,14 @@ function setUncaughtExceptionHandler() {
 
 function killWorkers() {
   for (let id in cluster.workers) {
-    const process_id = cluster.workers[id].process.pid
-    process.kill(process_id, 'SIGTERM')
+    const process_id = cluster.workers[id]?.process?.pid
+    if (process_id) {
+      process.kill(process_id, 'SIGTERM')
+    }
   }
 }
 
-function handleWorkerExit(code) {
+function handleWorkerExit(code: number) {
   if (code !== 0) {
     console.log("Forking another worker")
     cluster.fork()

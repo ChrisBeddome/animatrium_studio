@@ -1,26 +1,36 @@
-async function initWorker(start, makeStop) {
+import http from 'http'
+import net from 'net'
+
+async function initWorker(start: () => Promise<http.Server>,
+                          makeStop: (server: http.Server) => (timeout?: number) => Promise<void>) {
   console.log(`Worker ${process.pid} started`)
-  const server = await start()
-  console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${server.address().port}...`)
-  const shutdownFn = makeStop(server)
+  let server: http.Server
+  try {
+    server = await start()
+    console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${(server.address() as net.AddressInfo).port}...`)
+  } catch (e: unknown) {
+    console.log(`Error occured when initializing server: ${e}`)
+    process.exit(1)
+  }
+  const shutdownFn: (timeout?: number) => Promise<void> = makeStop(server)
   setWorkerTerminateProcedures(shutdownFn)
 }
 
-function setWorkerTerminateProcedures(shutdownFn) {
+function setWorkerTerminateProcedures(shutdownFn: (timeout?: number) => Promise<void>) {
   ignoreSignals()
   setTerminateHandler(shutdownFn)
   setUncaughtExceptionHandler()
 }
 
 function ignoreSignals() {
-  const signalsHandledByPrimaryProcess = ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'] 
+  const signalsHandledByPrimaryProcess: Array<string> = ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'] 
   signalsHandledByPrimaryProcess.forEach(signal => {
     process.on(signal, () => {})
   })
 }
 
-function setTerminateHandler(shutdownFn) {
-  let shutdownInitiated = false;
+function setTerminateHandler(shutdownFn: (timeout?: number) => Promise<void>) {
+  let shutdownInitiated: boolean = false;
   ['SIGTERM', 'SIGPIPE'].forEach(signal => {
     process.once(signal, async () => {
       if (!shutdownInitiated) {
