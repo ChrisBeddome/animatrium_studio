@@ -1,4 +1,3 @@
-import Sequelize from 'sequelize'
 import requireEnvVar from 'lib/utils/requireEnvVar'
 
 const hostname: string = requireEnvVar('DB_HOST')
@@ -7,10 +6,4 @@ const user: string = requireEnvVar('DB_USER')
 const password: string = requireEnvVar('DB_PASSWORD')
 const database: string = requireEnvVar('DB_NAME')
 
-const sequelize = new Sequelize(database, user, password, {
-  host: hostname,
-  port: port,
-  dialect: "mariadb"
-})
-
-export default sequelize
+export default "TODO"
