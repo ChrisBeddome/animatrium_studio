@@ -1,5 +1,4 @@
-function createTables() {
-}
+function createTables() {}
 
 try {
   createTables()
