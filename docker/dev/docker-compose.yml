@@ -2,6 +2,21 @@ name: animatrium_dev
 
 services: 
 
+  db:
+    build:
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.db
+    command: mariadbd --port ${DB_PORT}
+    networks:
+      primary:
+        aliases:
+          - ${DB_HOST}
+    env_file:
+      - .env
+    volumes:
+      - data:/var/lib/mysql
+    restart: "no"
+
   api: 
     depends_on: 
       - db
@@ -18,7 +33,8 @@ services:
     env_file:
       - .env
     volumes:
-      - ../../api/src/:/${API_WORKDIR}/src/
+      - ../../api/:/${API_WORKDIR}/
+      - node_modules_api:${API_WORKDIR}/node_modules
     restart: "no"
 
   client:
@@ -37,22 +53,8 @@ services:
     env_file:
       - .env
     volumes:
-      - ../../client/src/:/${CLIENT_WORKDIR}/src/
-    restart: "no"
-
-  db:
-    build:
-      context: ../../
-      dockerfile: ./docker/dev/Dockerfile.db
-    command: mariadbd --port ${DB_PORT}
-    networks:
-      primary:
-        aliases:
-          - ${DB_HOST}
-    env_file:
-      - .env
-    volumes:
-      - data:/var/lib/mysql
+      - ../../client/:/${CLIENT_WORKDIR}/
+      - node_modules_client:${CLIENT_WORKDIR}/node_modules
     restart: "no"
 
   reverse_proxy:
@@ -78,3 +80,5 @@ networks:
 
 volumes:
   data: {}
+  node_modules_api: {}
+  node_modules_client: {}
