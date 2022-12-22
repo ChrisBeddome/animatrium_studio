@@ -11,7 +11,7 @@ RUN apt install -y nodejs
 
 WORKDIR ${API_WORKDIR}
 
-COPY api/package.json .
+COPY api/package*.json .
 RUN npm install
 
 COPY api .
