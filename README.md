@@ -25,6 +25,10 @@ DB_PORT = 3306
 DB_NAME = animatrium
 DB_USER = animatrium_admin
 DB_PASSWORD = password
+DB_MIGRATION_TABLE = migrations
+DB_POOL_MIN = 0
+DB_POOL_MAX = 10
+DB_CONNECT_TIMEOUT_MS = 10000
 MARIADB_ROOT_PASSWORD = root
 
 REVERSE_PROXY_HOST = reverse-proxy
