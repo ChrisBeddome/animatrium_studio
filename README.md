@@ -25,7 +25,6 @@ DB_PORT = 3306
 DB_NAME = animatrium
 DB_USER = animatrium_admin
 DB_PASSWORD = password
-DB_MIGRATION_TABLE = migrations
 DB_POOL_MIN = 0
 DB_POOL_MAX = 10
 DB_CONNECT_TIMEOUT_MS = 10000
@@ -44,7 +43,13 @@ docker compose up
 
 ## Migrations
 
-To run schema migrations, issue the `db_migrate` command to the container running the API application
+To create a database migration, run the `knex migrate` command against the api container
+
+```bash
+docker compose exec api npx migrate:make [migration_name] --migration-directory db/migrations
+```
+
+To run schema migrations, run the `npm run db_migrate` command against the api container
 
 ```bash
 docker compose exec api npm run db_migrate

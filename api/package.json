@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "eCommerce application API built with ExpressJS",
-  "type": "module",
   "scripts": {
     "dev": "sleep 3600",
     "db_migrate": "node ./bin/dbMigrate.js",

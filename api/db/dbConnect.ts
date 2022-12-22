@@ -1,33 +1,6 @@
-import requireEnvVar from 'lib/utils/requireEnvVar'
 import knex from 'knex'
+import dbConfig from 'db/knexfile'
 
-const host: string = requireEnvVar('DB_HOST')
-const port: number = Number(requireEnvVar('DB_PORT'))
-const user: string = requireEnvVar('DB_USER')
-const password: string = requireEnvVar('DB_PASSWORD')
-const database: string = requireEnvVar('DB_NAME')
-const migrationTableName: string = requireEnvVar('DB_MIGRATION_TABLE')
-const poolMin: number = Number(requireEnvVar('DB_POOL_MIN'))
-const poolMax: number = Number(requireEnvVar('DB_POOL_MAX'))
-const dbConnectTimout: number = Number(requireEnvVar('DB_CONNECT_TIMOUT_MS'))
-
-const db = knex({
-  client: 'mariadb',
-  connection: {
-    host,
-    port,
-    user,
-    password,
-    database,
-  },
-  pool: {
-    min: poolMin,
-    max: poolMax
-  },
-  acquireConnectionTimeout: dbConnectTimeout
-  migrations: {
-    tableName: migrationTableName
-  }
-})
+const db = knex(dbConfig)
 
 export default db
