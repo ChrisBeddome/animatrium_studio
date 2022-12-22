@@ -34,7 +34,7 @@ services:
       - .env
     volumes:
       - ../../api/:/${API_WORKDIR}/
-      - ../../lib/:${API_WORKDIR}/lib/
+      - ../../lib/:${API_WORKDIR}/lib/:ro
       - node_modules_api:${API_WORKDIR}/node_modules
     restart: "no"
 
@@ -55,7 +55,7 @@ services:
       - .env
     volumes:
       - ../../client/:/${CLIENT_WORKDIR}/
-      - ../../lib/:${API_WORKDIR}/lib/
+      - ../../lib/:${API_WORKDIR}/lib/:ro
       - node_modules_client:${CLIENT_WORKDIR}/node_modules
     restart: "no"
 
