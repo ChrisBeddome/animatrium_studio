@@ -49,7 +49,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className={styles["image"]}>
-                <Image src="/images/RoushHelm.jpg" width={665} height={520} />
+                <Image src="/images/RoushHelm.jpg" width={750} height={422} />
               </div>
             </div>
           </section>
