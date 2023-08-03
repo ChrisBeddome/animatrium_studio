@@ -4,7 +4,7 @@
   "private": true,
   "description": "eCommerce application API built with ExpressJS",
   "scripts": {
-    "dev": "sleep 3600",
+    "dev": "tail -f /dev/null",
     "db_migrate": "node ./bin/dbMigrate.js",
     "db_seed": "node ./bin/dbSeed.js"
   },
