@@ -6,11 +6,9 @@
     "moduleResolution": "classic",
     "rootDir": ".", 
     "baseUrl": "./",
-    "outDir": "build",                             
+    "outDir": "dist",                             
     "forceConsistentCasingInFileNames": true,
     "strict": true,                              
-    "noImplicitAny": true,                      
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true
+    "esModuleInterop": true
   }
 }
