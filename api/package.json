@@ -4,7 +4,7 @@
   "private": true,
   "description": "eCommerce application API built with ExpressJS",
   "scripts": {
-    "dev": "tsx ./src/server/start.ts",
+    "dev": "tsx watch ./src/server/start.ts",
     "build": "tsc"
   },
   "author": "Chris Beddome",

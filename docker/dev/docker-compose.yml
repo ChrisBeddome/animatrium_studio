@@ -72,7 +72,7 @@ services:
         aliases:
           - ${REVERSE_PROXY_HOST}
     ports:
-      - 80:${REVERSE_PROXY_PORT}
+      - ${HOST_PORT}:${REVERSE_PROXY_PORT}
     env_file:
       - .env
     restart: "no"
