@@ -1,35 +1,36 @@
 import cluster from 'node:cluster'
 import { cpus } from 'node:os'
 
-function initPrimary() {
+function initPrimary(): void {
   console.log(`Primary ${process.pid} is running`)
-  const workerCount = getWorkerCount()
+  const workerCount: number = getWorkerCount()
   console.log(`Forking ${workerCount} worker(s)`)
   forkWorkers(workerCount)
   setTerminateProcedures()
 }
 
-function getWorkerCount() {
-  const cpuCount = cpus().length
+function getWorkerCount(): number {
+  const cpuCount: number = cpus().length
   const maxWorkerCount: number = Number(process.env.API_MAX_WORKER_COUNT || cpuCount)
   return Math.min(maxWorkerCount, cpuCount)
 }
 
-function forkWorkers(workerCount: number) {
+function forkWorkers(workerCount: number): void {
   for (let i = 0; i < workerCount; i++) {
     cluster.fork()
   }
 }
 
-function setTerminateProcedures() {
+function setTerminateProcedures(): void {
   setGracefulShutdown()
   setWorkerExitHandler()
   setUncaughtExceptionHandler()
 }
 
-function setGracefulShutdown() {
-  let shutdownInitiated = false;
-  ['SIGTERM', 'SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'].forEach(signal => {
+function setGracefulShutdown(): void {
+  let shutdownInitiated: boolean = false;
+  const signals: Array<NodeJS.Signals> = ['SIGTERM', 'SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP']
+  signals.forEach((signal: NodeJS.Signals) => {
     process.once(signal, () => {
       if (!shutdownInitiated) {
         shutdownInitiated = true
@@ -42,15 +43,15 @@ function setGracefulShutdown() {
   })
 }
 
-function setWorkerExitHandler() {
+function setWorkerExitHandler(): void {
   cluster.on('exit', (worker, code, signal) => {
     console.log(`Worker ${worker.process.pid} exited with code ${code}`)
     handleWorkerExit(code)
   })
 }
 
-function setUncaughtExceptionHandler() {
-  process.once('uncaughtException', (err, origin) => {
+function setUncaughtExceptionHandler(): void {
+  process.once('uncaughtException', (err: Error, origin: NodeJS.UncaughtExceptionOrigin) => {
     console.log(err)
     console.log(origin)
     console.log("killing children...")
@@ -60,7 +61,7 @@ function setUncaughtExceptionHandler() {
   })
 }
 
-function killWorkers() {
+function killWorkers(): void {
   for (let id in cluster.workers) {
     const process_id = cluster.workers[id]?.process?.pid
     if (process_id) {

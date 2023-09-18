@@ -22,16 +22,17 @@ function setWorkerTerminateProcedures(shutdownFn: (timeout?: number) => Promise<
   setUncaughtExceptionHandler()
 }
 
-function ignoreSignals() {
-  const signalsHandledByPrimaryProcess: Array<string> = ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'] 
-  signalsHandledByPrimaryProcess.forEach(signal => {
+function ignoreSignals(): void {
+  const signalsHandledByPrimaryProcess: Array<NodeJS.Signals> = ['SIGINT', 'SIGUSR1', 'SIGUSR2', 'SIGHUP'] 
+  signalsHandledByPrimaryProcess.forEach((signal: NodeJS.Signals) => {
     process.on(signal, () => {})
   })
 }
 
 function setTerminateHandler(shutdownFn: (timeout?: number) => Promise<void>) {
   let shutdownInitiated: boolean = false;
-  ['SIGTERM', 'SIGPIPE'].forEach(signal => {
+  const signals: Array<NodeJS.Signals> = ['SIGTERM', 'SIGPIPE']
+  signals.forEach((signal: NodeJS.Signals) => {
     process.once(signal, async () => {
       if (!shutdownInitiated) {
         shutdownInitiated = true
@@ -50,7 +51,7 @@ function setTerminateHandler(shutdownFn: (timeout?: number) => Promise<void>) {
   })
 }
 
-function setUncaughtExceptionHandler() {
+function setUncaughtExceptionHandler(): void {
   process.once('uncaughtException', (err, origin) => {
     console.log(`Worker ${process.pid} - uncaught exception:`)
     console.log(err)
