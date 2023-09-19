@@ -92,6 +92,7 @@ services:
       - .env
     volumes:
       - ../../migration_service/:/${MIGRATION_SERVICE_WORKDIR}/
+      - ../../lib/:${MIGRATION_SERVICE_WORKDIR}/lib/:ro
       - node_modules_migration_service:${MIGRATION_SERVICE_WORKDIR}/node_modules
     restart: "no"
 
