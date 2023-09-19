@@ -77,6 +77,24 @@ services:
       - .env
     restart: "no"
 
+  migration_service:
+    depends_on: 
+      - db
+    build:
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.migration_service
+      args: 
+        - MIGRATION_SERVICE_WORKDIR=${MIGRATION_SERVICE_WORKDIR}
+    command: tail -f /dev/null
+    networks:
+      - primary
+    env_file:
+      - .env
+    volumes:
+      - ../../migration_service/:/${MIGRATION_SERVICE_WORKDIR}/
+      - node_modules_migration_service:${MIGRATION_SERVICE_WORKDIR}/node_modules
+    restart: "no"
+
 networks:
   primary: {}
 
@@ -84,3 +102,4 @@ volumes:
   data: {}
   node_modules_api: {}
   node_modules_client: {}
+  node_modules_migration_service: {}
