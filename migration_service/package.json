@@ -2,8 +2,11 @@
   "name": "animatrium-studio-migration-service",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "migration service for animatrium studio",
-  "scripts": {},
+  "scripts": {
+   "migrate_schema": "node src/migrateSchema.js"
+  },
   "author": "Chris Beddome",
   "license": "UNLICENSED",
   "repository": {
