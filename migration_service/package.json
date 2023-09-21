@@ -5,7 +5,8 @@
   "type": "module",
   "description": "migration service for animatrium studio",
   "scripts": {
-   "migrate_schema": "node src/migrateSchema.js"
+    "generate_schema_migration": "node bin/generateSchemaMigration.js",
+    "migrate_schema": "node bin/migrateSchema.js"
   },
   "author": "Chris Beddome",
   "license": "UNLICENSED",
