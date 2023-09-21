@@ -41,12 +41,16 @@ Start the development server
 docker compose up
 ```
 
-## Migrations
-
-To create a database migration, run the `knex migrate` command against the api container
+To generate a schema migration, run the following command against the migration_service container
 
 ```bash
-docker compose exec api npx migrate:make [migration_name] --migration-directory db/migrations
+    npm run generate_schema_migration -- [migration_name]
+```
+
+This will place a timestamped file in the migrations/schema directory. The same can be done for data migrations:
+
+```bash
+    npm run generate_data_migration -- [migration_name]
 ```
 
 To run schema migrations, run the `npm run db_migrate` command against the api container
