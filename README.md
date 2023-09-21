@@ -45,14 +45,28 @@ docker compose up
 
 Both schema and data mirations are handled by the migration_service
 
-To generate a schema migration, run the following command against the migration_service container
+To generate a schema migration, run the following command against the migration_service container:
 
 ```bash
 npm run generate_schema_migration -- [migration_name]
 ```
 
-This will place a timestamped file in the migrations/schema directory. The same can be done for data migrations:
+The same can be done for data migrations:
 
 ```bash
 npm run generate_data_migration -- [migration_name]
 ```
+
+This will place a timestamped file in the respective migrations/ directory of the form:
+
+```javascript
+const up = () => {
+    // return sql
+}
+
+const down = () => {
+    // return sql
+}
+```
+
+These functions need only return valid SQL which will be run during the migration step. If you need support or rollbacks, you must provide a return value for the down() function as well.
