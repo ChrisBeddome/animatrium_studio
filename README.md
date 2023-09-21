@@ -69,4 +69,4 @@ const down = () => {
 }
 ```
 
-These functions need only return valid SQL which will be run during the migration step. If you need support or rollbacks, you must provide a return value for the down() function as well.
+These functions must return valid SQL which will be run during the migration step. Only the up() function is required, though if you wish to support rollbacks, you must provide a return value for the down() function as well.
