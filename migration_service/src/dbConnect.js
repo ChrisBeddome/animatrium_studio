@@ -7,16 +7,19 @@ const user = requireEnvVar('DB_USER')
 const password = requireEnvVar('DB_PASSWORD')
 const database = requireEnvVar('DB_NAME')
 
-async function connect() {
+const connect = async () => {
 	const conn = await mariadb.createConnection({ host, user, password, port, database })
 	console.log("Succesfully connected to MariaDB - connection id:" + conn.threadId)
 	return conn
 }
 
-async function runQuery(query) {
-	const conn = await connect()
-	const res = await conn.query(query)
-	conn.end()
+const runQuery = async query => {
+	return new Promise((res, rej) => {
+		const conn = await connect()
+		const response = await conn.query(query)
+		conn.end()
+		res(response)
+	})
 }
 
 export default runQuery

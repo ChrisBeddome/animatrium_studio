@@ -1,18 +1,16 @@
 import runQuery from '../src/dbConnect.js'
 
-async function setUpMigrationsTable() {
-	const query = `
+const setUpMigrationsTable() => {
+	return `
 		CREATE TABLE IF NOT EXISTS schema_migrations (
 			name VARCHAR(255) NOT NULL,
 			PRIMARY KEY (name)
 		)
 	`
-
-	runQuery(query)
 }
 
-function migrateSchema() {
-	setUpMigrationsTable()
+const migrateSchema() = async () => {
+	await runQuery(tableSetupQuery())
 }
 
 migrateSchema()
