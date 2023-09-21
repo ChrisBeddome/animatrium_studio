@@ -41,6 +41,10 @@ Start the development server
 docker compose up
 ```
 
+## Migrations
+
+Both schema and data mirations are handled by the migration_service
+
 To generate a schema migration, run the following command against the migration_service container
 
 ```bash
@@ -51,16 +55,4 @@ This will place a timestamped file in the migrations/schema directory. The same 
 
 ```bash
 npm run generate_data_migration -- [migration_name]
-```
-
-To run schema migrations, run the `npm run db_migrate` command against the api container
-
-```bash
-docker compose exec api npm run db_migrate
-```
-
-## Seed development/test data (optional) 
-
-```bash
-docker compose exec api npm run db_seed
 ```
