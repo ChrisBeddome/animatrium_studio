@@ -13,5 +13,11 @@ async function connect() {
 	return conn
 }
 
-export default connect
+async function runQuery(query) {
+	const conn = await connect()
+	const res = await conn.query(query)
+	conn.end()
+}
+
+export default runQuery
 
