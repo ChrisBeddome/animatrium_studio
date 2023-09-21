@@ -44,13 +44,13 @@ docker compose up
 To generate a schema migration, run the following command against the migration_service container
 
 ```bash
-    npm run generate_schema_migration -- [migration_name]
+npm run generate_schema_migration -- [migration_name]
 ```
 
 This will place a timestamped file in the migrations/schema directory. The same can be done for data migrations:
 
 ```bash
-    npm run generate_data_migration -- [migration_name]
+npm run generate_data_migration -- [migration_name]
 ```
 
 To run schema migrations, run the `npm run db_migrate` command against the api container
