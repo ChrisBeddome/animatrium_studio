@@ -13,8 +13,8 @@ const connect = async () => {
 	return conn
 }
 
-const runQuery = async query => {
-	return new Promise((res, rej) => {
+const runQuery = query => {
+	return new Promise(async (res, rej) => {
 		const conn = await connect()
 		const response = await conn.query(query)
 		conn.end()
