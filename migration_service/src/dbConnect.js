@@ -7,20 +7,38 @@ const user = requireEnvVar('DB_USER')
 const password = requireEnvVar('DB_PASSWORD')
 const database = requireEnvVar('DB_NAME')
 
-const connect = async () => {
-	const conn = await mariadb.createConnection({ host, user, password, port, database })
-	console.log("Succesfully connected to MariaDB - connection id:" + conn.threadId)
-	return conn
-}
-
-const runQuery = query => {
-	return new Promise(async (res, rej) => {
-		const conn = await connect()
-		const response = await conn.query(query)
-		conn.end()
-		res(response)
+let conn
+const getConn = async () => {
+	return new Promise( async (res, rej) => {
+		if (conn) {
+			res(conn)
+		} else {
+			conn = await mariadb.createConnection({ host, user, password, port, database })
+			res(conn)
+		}
 	})
 }
 
-export default runQuery
+const release = () => {
+	conn.end()
+	conn = null
+}
 
+const transaction = fn => {
+	return new Promise(async (res, rej) => {
+		const connection = await getConn()
+		await connection.beginTransaction()
+		try {
+			await fn(connection)
+			await connection.commit()
+		} catch (e) {
+			await connection.rollback()
+			throw(e)
+		} finally {
+			release()
+		}
+	})
+}
+
+
+export { transaction }
