@@ -1,7 +1,13 @@
-const up = () => {
-	// return sql here
+export const up = () => {
+	return `
+		CREATE TABLE poopoo (
+			id INT NOT NULL,
+			type VARCHAR(255),
+			PRIMARY KEY(id)
+		)
+	`
 }
 
-const down = () => {
+export const down = () => {
 	// return sql here
 }
