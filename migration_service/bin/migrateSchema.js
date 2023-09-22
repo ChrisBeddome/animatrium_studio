@@ -21,6 +21,14 @@ const insertMigrationQuery = filename => (`
 	INSERT INTO schema_migrations (name) VALUES ('${filename}')
 `)
 
+const getFilesForMigration = connection => {
+	return new Promise(async (res, rej) => {
+		const completedMigrationFileNames = (await connection.execute(getCompletedMigrationsQuery())).map(row => row.name)
+		const allMigrationFileNames = await readdir(path.join(__dirname, '../migrations/schema/'))
+		res(allMigrationFileNames.filter(filename => !completedMigrationFileNames.includes(filename)))
+	})
+}
+
 const migrateOne = (connection, filename) => {
 	return new Promise(async (res, rej) => {
 		try {
@@ -37,12 +45,9 @@ const migrateOne = (connection, filename) => {
 const migrateSchema = connection => {
 	return new Promise(async (res, rej) => {
 		await connection.execute(getTableSetupQuery())
-		const completedMigrationFileNames = (await connection.execute(getCompletedMigrationsQuery())).map(row => row.name)
-		const allMigrationFileNames = await readdir(path.join(__dirname, '../migrations/schema/'))
-		const incompleteMigrationFileNames = allMigrationFileNames.filter(filename => !completedMigrationFileNames.includes(filename)) 
-
+    const filesToMigrate = await getFilesForMigration(connection)
 		try {
-			await Promise.all(incompleteMigrationFileNames.map(filename => migrateOne(connection, filename)))
+			await Promise.all(filesToMigrate.map(filename => migrateOne(connection, filename)))
 		} catch(e) {
 			rej(e)
 		}
