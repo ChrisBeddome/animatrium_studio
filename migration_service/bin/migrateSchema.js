@@ -21,6 +21,11 @@ const insertMigrationQuery = filename => (`
 	INSERT INTO schema_migrations (name) VALUES ('${filename}')
 `)
 
+const runMigration = (query, name) => {
+	runQuery(query)
+	runQuery(insertMigrationQuery(name))
+}
+
 const migrateSchema = async () => {
 	await runQuery(tableSetupQuery())
 	const completedMigrationFileNames = (await runQuery(getCompletedMigrationsQuery())).map(row => row.name)
@@ -29,8 +34,7 @@ const migrateSchema = async () => {
 
 	incompleteMigrationFileNames.forEach(async filename => {
 		const module = await import(path.join(__dirname, `../migrations/schema/${filename}`));
-		runQuery(module.up())
-		runQuery(insertMigrationQuery(filename))
+		runMigration(module.up(), filename)
 	})
 }
 
