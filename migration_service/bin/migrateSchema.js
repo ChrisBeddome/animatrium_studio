@@ -6,6 +6,12 @@ import { transaction } from '../src/dbConnect.js'
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const readdir = promisify(fs.readdir)
 
+const setupDir = directoryPath => {
+	if (!fs.existsSync(directoryPath)) {
+		fs.mkdirSync(directoryPath, { recursive: true })
+	} 
+}
+
 const getTableSetupQuery = () => (`
 	CREATE TABLE IF NOT EXISTS schema_migrations (
 		name VARCHAR(255) NOT NULL,
@@ -44,6 +50,7 @@ const migrateOne = (connection, filename) => {
 
 const migrateSchema = connection => {
 	return new Promise(async (res, rej) => {
+		setupDir(path.join(__dirname, `../migrations/schema/`))
 		await connection.execute(getTableSetupQuery())
     const filesToMigrate = await getFilesForMigration(connection)
 		try {
