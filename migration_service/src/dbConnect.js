@@ -1,43 +1,43 @@
 import mariadb from 'mariadb'
 import requireEnvVar from '../lib/utils/requireEnvVar.js'
 
-const host = requireEnvVar('DB_HOST')
-const port = Number(requireEnvVar('DB_PORT'))
-const user = requireEnvVar('DB_USER')
-const password = requireEnvVar('DB_PASSWORD')
-const database = requireEnvVar('DB_NAME')
+const dbConfig = {
+  host: requireEnvVar('DB_HOST'),
+  port: Number(requireEnvVar('DB_PORT')),
+  user: requireEnvVar('DB_USER'),
+  password: requireEnvVar('DB_PASSWORD'),
+  database: requireEnvVar('DB_NAME')
+}
 
 let conn
+
 const getConn = async () => {
-  return new Promise( async (res, rej) => {
-    if (conn) {
-      res(conn)
-    } else {
-      conn = await mariadb.createConnection({ host, user, password, port, database })
-      res(conn)
-    }
-  })
+  if (!conn) {
+    conn = await mariadb.createConnection(dbConfig)
+  }
+  return conn
 }
 
 const release = () => {
-  conn.end()
-  conn = null
+  if (conn) {
+    conn.end()
+    conn = null
+  }
 }
 
-const transaction = fn => {
-  return new Promise(async (res, rej) => {
-    const connection = await getConn()
+const transaction = async fn => {
+  const connection = await getConn()
+  try {
     await connection.beginTransaction()
-    try {
-      await fn(connection)
-      await connection.commit()
-    } catch (e) {
-      await connection.rollback()
-      throw(e)
-    } finally {
-      release()
-    }
-  })
+    await fn(connection)
+    await connection.commit()
+  } catch (error) {
+    await connection.rollback()
+    throw error
+  } finally {
+    release()
+  }
 }
 
 export { transaction }
+
