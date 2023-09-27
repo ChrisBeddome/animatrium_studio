@@ -9,35 +9,35 @@ const database = requireEnvVar('DB_NAME')
 
 let conn
 const getConn = async () => {
-	return new Promise( async (res, rej) => {
-		if (conn) {
-			res(conn)
-		} else {
-			conn = await mariadb.createConnection({ host, user, password, port, database })
-			res(conn)
-		}
-	})
+  return new Promise( async (res, rej) => {
+    if (conn) {
+      res(conn)
+    } else {
+      conn = await mariadb.createConnection({ host, user, password, port, database })
+      res(conn)
+    }
+  })
 }
 
 const release = () => {
-	conn.end()
-	conn = null
+  conn.end()
+  conn = null
 }
 
 const transaction = fn => {
-	return new Promise(async (res, rej) => {
-		const connection = await getConn()
-		await connection.beginTransaction()
-		try {
-			await fn(connection)
-			await connection.commit()
-		} catch (e) {
-			await connection.rollback()
-			throw(e)
-		} finally {
-			release()
-		}
-	})
+  return new Promise(async (res, rej) => {
+    const connection = await getConn()
+    await connection.beginTransaction()
+    try {
+      await fn(connection)
+      await connection.commit()
+    } catch (e) {
+      await connection.rollback()
+      throw(e)
+    } finally {
+      release()
+    }
+  })
 }
 
 
