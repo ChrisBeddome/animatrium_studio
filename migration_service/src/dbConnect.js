@@ -40,5 +40,4 @@ const transaction = fn => {
   })
 }
 
-
 export { transaction }
