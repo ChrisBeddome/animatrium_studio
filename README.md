@@ -70,3 +70,15 @@ const down = () => {
 ```
 
 These functions must return valid SQL which will be run during the migration step. Only the up() function is required, though if you wish to support rollbacks, you must provide a return value for the down() function as well.
+
+To run the migrations, run the following against the migration_service container:
+
+For schema migrations: 
+```bash
+npm run migrate_schema
+```
+
+For data migrations: 
+```bash
+npm run migrate_data
+```
