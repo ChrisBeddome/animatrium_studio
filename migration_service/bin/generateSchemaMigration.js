@@ -10,11 +10,11 @@ const generateFileName = userSuppliedName => `${getDateString()}_${userSuppliedN
 
 const createFile = userInput => {
 	const filepath = path.join(__dirname, '../migrations/schema/', generateFileName(userInput))
-	const content = `const up = () => {
+	const content = `export const up = () => {
 	// return sql here
 }
 
-const down = () => {
+export const down = () => {
 	// return sql here
 }
 `
@@ -30,8 +30,3 @@ const down = () => {
 
 const userInput = process.argv[2]
 createFile(userInput)
-
-
-
-
-
