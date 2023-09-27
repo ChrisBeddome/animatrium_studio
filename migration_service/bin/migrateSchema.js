@@ -47,7 +47,9 @@ const migrateSchema = connection => {
 		await connection.execute(getTableSetupQuery())
     const filesToMigrate = await getFilesForMigration(connection)
 		try {
-			await Promise.all(filesToMigrate.map(filename => migrateOne(connection, filename)))
+			for (let i = 0; i < filesToMigrate.length; i++) {
+				await migrateOne(connection, filesToMigrate[i])
+			}
 		} catch(e) {
 			rej(e)
 		}
