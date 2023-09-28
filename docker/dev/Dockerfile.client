@@ -15,8 +15,5 @@ RUN mkdir -p /etc/apt/keyrings; \
 
 WORKDIR ${CLIENT_WORKDIR}
 
-COPY client/package*.json .
-RUN npm install
-
 COPY client .
 COPY lib/ ./lib

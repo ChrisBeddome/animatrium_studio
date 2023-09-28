@@ -15,7 +15,4 @@ RUN mkdir -p /etc/apt/keyrings; \
 
 WORKDIR ${MIGRATION_SERVICE_WORKDIR}
 
-COPY migration_service/package*.json .
-RUN npm install
-
 COPY migration_service .
