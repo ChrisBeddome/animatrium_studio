@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "migration service for animatrium studio",
-  "scripts": {},
+  "scripts": {
+    "valkurm": "valkurm"
+  },
   "author": "Chris Beddome",
   "license": "UNLICENSED",
   "repository": {
