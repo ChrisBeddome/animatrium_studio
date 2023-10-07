@@ -1,5 +1,5 @@
 import express from "express"
-import entryPoint from "src/routes/entryPoint.js"
+import entryPoint from "./routes/entryPoint.js"
 
 const app = express()
 app.use("/", entryPoint)

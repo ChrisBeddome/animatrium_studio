@@ -1,11 +1,10 @@
 import http from 'http'
 import express from 'express'
-
 import cluster from 'node:cluster'
-import requireEnvVar from 'lib/utils/requireEnvVar.js'
-import app from 'src/app.js'
-import initPrimary from 'src/server/initPrimary.js'
-import initWorker from 'src/server/initWorker.js'
+import app from '../app.js'
+import initPrimary from './initPrimary.js'
+import initWorker from './initWorker.js'
+import requireEnvVar from '../../lib/utils/requireEnvVar.js'
 
 if (cluster.isPrimary) {
   initPrimary()

@@ -1,5 +1,5 @@
 import mariadb from 'mariadb'
-import requireEnvVar from 'lib/utils/requireEnvVar.js'
+import requireEnvVar from '../../lib/utils/requireEnvVar.js'
 
 const dbConfig = {
   host: requireEnvVar('DB_HOST'),
