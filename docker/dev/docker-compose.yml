@@ -17,65 +17,65 @@ services:
       - data:/var/lib/mysql
     restart: "no"
 
-  # api: 
-  #   depends_on: 
-  #     - db
-  #   build:
-  #     context: ../../
-  #     dockerfile: ./docker/dev/Dockerfile.api
-  #     args: 
-  #       - API_WORKDIR=${API_WORKDIR}
-  #   command: npm run dev
-  #   networks:
-  #     primary:
-  #       aliases:
-  #         - ${API_HOST}
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ../../api/:/${API_WORKDIR}/
-  #     - ../../lib/:${API_WORKDIR}/lib/:ro
-  #     - node_modules_api:${API_WORKDIR}/node_modules
-  #   restart: "no"
-  #
-  # client:
-  #   depends_on: 
-  #     - api
-  #   build:
-  #     context: ../../
-  #     dockerfile: ./docker/dev/Dockerfile.client
-  #     args: 
-  #       - CLIENT_WORKDIR=${CLIENT_WORKDIR}
-  #   command: npm run dev --port=${CLIENT_PORT}
-  #   networks:
-  #     primary:
-  #       aliases:
-  #         - ${CLIENT_HOST}
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ../../client/:/${CLIENT_WORKDIR}/
-  #     - ../../lib/:${CLIENT_WORKDIR}/lib/:ro
-  #     - node_modules_client:${CLIENT_WORKDIR}/node_modules
-  #   restart: "no"
-  #
-  # reverse_proxy:
-  #   depends_on: 
-  #     - api
-  #     - db
-  #     - client
-  #   build:
-  #     context: ../../
-  #     dockerfile: ./docker/dev/Dockerfile.reverse_proxy
-  #   networks:
-  #     primary:
-  #       aliases:
-  #         - ${REVERSE_PROXY_HOST}
-  #   ports:
-  #     - ${HOST_PORT}:${REVERSE_PROXY_PORT}
-  #   env_file:
-  #     - .env
-  #   restart: "no"
+  api: 
+    depends_on: 
+      - db
+    build:
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.api
+      args: 
+        - API_WORKDIR=${API_WORKDIR}
+    command: npm run dev
+    networks:
+      primary:
+        aliases:
+          - ${API_HOST}
+    env_file:
+      - .env
+    volumes:
+      - ../../api/:/${API_WORKDIR}/
+      - ../../lib/:${API_WORKDIR}/lib/:ro
+      - node_modules_api:${API_WORKDIR}/node_modules
+    restart: "no"
+
+  client:
+    depends_on: 
+      - api
+    build:
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.client
+      args: 
+        - CLIENT_WORKDIR=${CLIENT_WORKDIR}
+    command: npm run dev --port=${CLIENT_PORT}
+    networks:
+      primary:
+        aliases:
+          - ${CLIENT_HOST}
+    env_file:
+      - .env
+    volumes:
+      - ../../client/:/${CLIENT_WORKDIR}/
+      - ../../lib/:${CLIENT_WORKDIR}/lib/:ro
+      - node_modules_client:${CLIENT_WORKDIR}/node_modules
+    restart: "no"
+
+  reverse_proxy:
+    depends_on: 
+      - api
+      - db
+      - client
+    build:
+      context: ../../
+      dockerfile: ./docker/dev/Dockerfile.reverse_proxy
+    networks:
+      primary:
+        aliases:
+          - ${REVERSE_PROXY_HOST}
+    ports:
+      - ${HOST_PORT}:${REVERSE_PROXY_PORT}
+    env_file:
+      - .env
+    restart: "no"
 
   migration_service:
     depends_on: 
