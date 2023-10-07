@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function ProductCard({ product }) {
   function formatPrice(price) {
-    return `$${price && price.toFixed(2)}`
+    return `$${price && Number(price).toFixed(2)}`
   }
   return (
     <div className={styles.card}>

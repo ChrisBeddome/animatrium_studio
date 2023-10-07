@@ -24,7 +24,7 @@ export default function ProductPage({product}) {
             </div>
             <div>
               <h2 className="mb-3">{product.name}</h2>
-              <h4 className="mb-5">${product.price.toFixed(2)}</h4>
+              <h4 className="mb-5">${Number(product.price).toFixed(2)}</h4>
               <p>{product.description}</p>
             </div>
           </section>
