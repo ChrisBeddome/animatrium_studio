@@ -20,9 +20,9 @@ const connect = async (): Promise<mariadb.PoolConnection> => {
   return await getPool().getConnection()
 }
 
-const query = async(sql: string): Promise<any> => {
+const query = async(sql: string, params?: Array<any>): Promise<any> => {
   const connection = await connect()
-  const result: any = await connection.execute(sql)
+  const result: any = await connection.execute(sql, params)
   connection.release()
   return result
 }
