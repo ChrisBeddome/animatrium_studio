@@ -43,18 +43,18 @@ docker compose up
 
 ## Migrations
 
-Both schema and data mirations are handled by the migration_service
+Both schema and data migrations are handled by the migration_service, which uses [Valkurm](https://github.com/ChrisBeddome/valkurm).
 
 To generate a schema migration, run the following command against the migration_service container:
 
 ```bash
-npm run generate_schema_migration -- [migration_name]
+npm run valkurm generate-schema-migration <migration_name>
 ```
 
 The same can be done for data migrations:
 
 ```bash
-npm run generate_data_migration -- [migration_name]
+npm run valkurm generate-data-migration <migration_name>
 ```
 
 This will place a timestamped file in the respective migrations/ directory of the form:
@@ -75,10 +75,10 @@ To run the migrations, run the following against the migration_service container
 
 For schema migrations: 
 ```bash
-npm run migrate_schema
+npm run valkurm migrate-schema
 ```
 
 For data migrations: 
 ```bash
-npm run migrate_data
+npm run valkurm migrate-data
 ```
