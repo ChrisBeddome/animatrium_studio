@@ -1,13 +1,14 @@
 import http from 'http'
 import net from 'net'
+import noisyLogger from '../../lib/utils/noisyLogger.js'
 
 async function initWorker(start: () => Promise<http.Server>,
                           makeStop: (server: http.Server) => (timeout?: number) => Promise<void>) {
-  console.log(`Worker ${process.pid} started`)
+  noisyLogger(`Worker ${process.pid} started`)
   let server: http.Server
   try {
     server = await start()
-    console.log(`Worker ${process.pid} - Server started. Listening for requests on port ${(server.address() as net.AddressInfo).port}...`)
+    noisyLogger(`Worker ${process.pid} - Server started. Listening for requests on port ${(server.address() as net.AddressInfo).port}...`)
   } catch (e: unknown) {
     console.log(`Error occured when initializing server: ${e}`)
     process.exit(1)
@@ -36,13 +37,13 @@ function setTerminateHandler(shutdownFn: (timeout?: number) => Promise<void>) {
     process.once(signal, async () => {
       if (!shutdownInitiated) {
         shutdownInitiated = true
-        console.log(`Worker ${process.pid} received ${signal}. killing server`)
+        noisyLogger(`Worker ${process.pid} received ${signal}. killing server`)
         try {
           await shutdownFn()
-          console.log(`Server closed. Worker ${process.pid} exiting...`)
+          noisyLogger(`Server closed. Worker ${process.pid} exiting...`)
           process.exit(0)
         } catch {
-          console.log(`Could not close connections in time, forcefully shutting down worker ${process.pid}`)
+          noisyLogger(`Could not close connections in time, forcefully shutting down worker ${process.pid}`)
           process.exit(1)
         }
 

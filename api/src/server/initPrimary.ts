@@ -1,10 +1,11 @@
 import cluster from 'node:cluster'
 import { cpus } from 'node:os'
+import noisyLogger from '../../lib/utils/noisyLogger.js'
 
 function initPrimary(): void {
-  console.log(`Primary ${process.pid} is running`)
+  noisyLogger(`Primary ${process.pid} is running`)
   const workerCount: number = getWorkerCount()
-  console.log(`Forking ${workerCount} worker(s)`)
+  noisyLogger(`Forking ${workerCount} worker(s)`)
   forkWorkers(workerCount)
   setTerminateProcedures()
 }
@@ -34,9 +35,9 @@ function setGracefulShutdown(): void {
     process.once(signal, () => {
       if (!shutdownInitiated) {
         shutdownInitiated = true
-        console.log(`Primary received ${signal}. killing children`)
+        noisyLogger(`Primary received ${signal}. killing children`)
         killWorkers()
-        console.log(`Primary exiting...`)
+        noisyLogger(`Primary exiting...`)
         process.exitCode = 0
       }
     })
@@ -45,7 +46,7 @@ function setGracefulShutdown(): void {
 
 function setWorkerExitHandler(): void {
   cluster.on('exit', (worker, code, signal) => {
-    console.log(`Worker ${worker.process.pid} exited with code ${code}`)
+    noisyLogger(`Worker ${worker.process.pid} exited with code ${code}`)
     handleWorkerExit(code)
   })
 }
@@ -72,7 +73,7 @@ function killWorkers(): void {
 
 function handleWorkerExit(code: number) {
   if (code !== 0) {
-    console.log("Forking another worker")
+    noisyLogger("Forking another worker")
     cluster.fork()
   }
 }

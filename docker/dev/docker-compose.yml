@@ -25,7 +25,7 @@ services:
       dockerfile: ./docker/dev/Dockerfile.api
       args: 
         - API_WORKDIR=${API_WORKDIR}
-    command: tail -f /dev/null
+    command: npm run dev
     networks:
       primary:
         aliases:
