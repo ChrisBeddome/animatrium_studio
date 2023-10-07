@@ -12,5 +12,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ChrisBeddome/animatrium_studio"
+  },
+  "dependencies": {
+    "valkurm": "1.0.0"
   }
 }
