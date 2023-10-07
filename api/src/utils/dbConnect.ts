@@ -9,7 +9,7 @@ const dbConfig: mariadb.PoolConfig = {
   database: requireEnvVar('DB_NAME')
 }
 
-const	pool: mariadb.Poolss = mariadb.createPool(dbConfig)
+const	pool: mariadb.Pools = mariadb.createPool(dbConfig)
 
 export default pool
 
