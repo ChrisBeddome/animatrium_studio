@@ -1,8 +1,8 @@
 import express from 'express'
 
 const getAllProducts = async (_req: express.Request, res: express.Response, _next: express.NextFunction): Promise<void> => {
-  // const products: Array = []
-  // res.send(products)
+  const products: Array = []
+  res.send(products)
 };
 
 const getProduct = async (req: express.Request, res: express.Response, _next: express.NextFunction): Promise<void> => {
