@@ -5,9 +5,9 @@
   "description": "eCommerce application client built with Next.js",
   "type": "module",
   "scripts": {
-    "dev": "next dev -p $npm_config_port",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $npm_config_port 2>&1 | tee -a ./logs/prod.txt"
+    "start": "next start"
   },
   "author": "Chris Beddome",
   "license": "UNLICENSED",
