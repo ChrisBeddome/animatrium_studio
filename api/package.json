@@ -16,7 +16,7 @@
     "url": "https://github.com/ChrisBeddome/animatrium_studio"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.19.1"
   },
   "devDependencies": {
     "@types/express": "4.17.15",
